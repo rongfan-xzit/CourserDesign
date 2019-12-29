@@ -5,10 +5,8 @@ public class Permission {
     private String name;
     private String type;
     private String url;
-    private String percode;
     private Integer parentid;
     private String parentids;
-    private String sortstring;
     private String available;
 
     public Integer getId() {
@@ -43,13 +41,6 @@ public class Permission {
         this.url = url;
     }
 
-    public String getPercode() {
-        return percode;
-    }
-
-    public void setPercode(String percode) {
-        this.percode = percode;
-    }
 
     public Integer getParentid() {
         return parentid;
@@ -67,13 +58,6 @@ public class Permission {
         this.parentids = parentids;
     }
 
-    public String getSortstring() {
-        return sortstring;
-    }
-
-    public void setSortstring(String sortstring) {
-        this.sortstring = sortstring;
-    }
 
     public String getAvailable() {
         return available;
@@ -81,5 +65,18 @@ public class Permission {
 
     public void setAvailable(String available) {
         this.available = available;
+    }
+
+    @Override
+    public String toString() {
+        return "Permission{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", url='" + url + '\'' +
+                ", parentid=" + parentid +
+                ", parentids='" + parentids + '\'' +
+                ", available='" + available + '\'' +
+                '}';
     }
 }

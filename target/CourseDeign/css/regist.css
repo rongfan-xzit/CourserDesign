@@ -25,6 +25,7 @@ article h1 em{display: inline-block;color:#5593ce;font-size: 25px;}
 .main{
 	padding: 40px 0px;
 	width: 100%;
+	height: 300px;
 	background-color: rgba(24, 80, 137, 0.77);
 }
 form{
@@ -52,8 +53,8 @@ form{
 }
 .main form {
 	margin: 10px 0;
-    width: 280px;
-    height: 35px;
+    width: 390px;
+    height: 350px;
     border-radius: 3px;
     display: inline-block;
     border: 1px solid rgb(165, 161, 161);

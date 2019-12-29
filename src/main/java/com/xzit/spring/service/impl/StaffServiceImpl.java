@@ -34,4 +34,9 @@ public class StaffServiceImpl implements com.xzit.spring.service.StaffService {
         PageInfo<Staff> page = new PageInfo<>(staffAll);
         return page;
     }
+
+    @Override
+    public Staff findById(String workId) {
+        return staffMapper.findById(workId);
+    }
 }

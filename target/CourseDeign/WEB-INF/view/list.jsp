@@ -15,26 +15,9 @@
 <body>
     <!--数据查询-->
     <form class="layui-form">
-        <div class="layui-input-inline w149">
-            <select id="xq">
-                <option value="0">选择学期</option>
-                <option value="1" >2017-2018-2</option>
-                <option value="2" >2018-2019-1</option>
-            </select>
-        </div>
-        <div class="layui-input-inline w150">
-            <select id="yxid">
-                <option value="0">选择学院</option>
-                <option value="1">经济学院</option>
-            </select>
-        </div>
         <div class="layui-input-inline">
-            <input type="text" autocomplete="off" placeholder="请输入课程名称"  class="layui-input" id="kcm" value="">
+            <input type="text" autocomplete="off" placeholder="请输入员工姓名"  class="layui-input" id="kcm" value="">
         </div>
-        <div class="layui-input-inline">
-            <input type="text" autocomplete="off" placeholder="请输入任课教师"  class="layui-input" id="skls" value="">
-        </div>
-
         <a class="layui-btn mgl-20" data-type="reload" id="queryBtn">查询</a>
         <a class="layui-btn mgl-20 layui-btn-normal" data-type="add" id="addBtn">添加</a>
     </form>
@@ -64,8 +47,7 @@
                     ,{field:'phone', title:'手机号', width:120}
                     ,{field:'sex', title:'性别', width:120}
                     ,{field:'age', title:'年龄', width:160}
-                    ,{field:'password', title:'账户密码', width:120}
-                    ,{field:'roleid', title:'角色编号', width:100}
+                    ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
                 ]]
                 ,page: true
             });
@@ -76,13 +58,6 @@
                     table.reload('courselist', {
                         page: {
                             curr: 1 //重新从第 1 页开始
-                        }
-                        ,where: {
-                            //重新加载条件
-                            xq : $('#xq').val(),
-                            yxid : $('#yxid').val(),
-                            kcm : $('#kcm').val(),
-                            skls : $('#skls').val()
                         }
                     });
                 },
@@ -98,15 +73,15 @@
                         }
                     });
                 },
-                toedit:function (winTitle,kcid) {
+                toedit:function (winTitle,workId) {
                     layer.open({
                         type: 2,
-                        title: '徐州工程学院教学工作量核算系统-添加课程信息',
+                        title: '添加员工信息',
                         shadeClose: false,
                         shade: 0.5,
                         maxmin: true, //开启最大化最小化按钮
                         area: ['1000px', '600px'],
-                        content: '${pageContext.request.contextPath}/courseinfo/toedit/'+kcid
+                        content: '${pageContext.request.contextPath}/courseinfo/toedit/'+workId
                     });
                 }
             };
@@ -116,7 +91,7 @@
             });
 
             $("#addBtn").click(function () {
-                active.toedit("徐州工程学院教学工作量核算系统-修改课程信息",0);
+                active.toedit("修改员工信息",0);
             });
 
             //监听行工具事件
@@ -129,7 +104,7 @@
                         layer.close(index);
                     });
                 } else if(obj.event === 'edit'){
-                    active.toedit("徐州工程学院教学工作量核算系统-修改课程信息",data.id);
+                    active.toedit("修改员工信息",data.id);
                 }
             });
         });

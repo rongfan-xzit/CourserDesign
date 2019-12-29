@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class PermissionServiceImpl implements PermissionService {
     @Autowired
@@ -14,5 +16,15 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public List<Permission> getSysPermissionByRoleId(String role_id) {
         return permissionMapper.getSysPermissionByRoleId(role_id);
+    }
+
+    @Override
+    public List<Permission> getAll() {
+        return permissionMapper.getAll();
+    }
+
+    @Override
+    public List<Map<String, Object>> getsyspermissiontreebyroleid(String role_id) {
+        return permissionMapper.getsyspermissiontreebyroleid(role_id);
     }
 }

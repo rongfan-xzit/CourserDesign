@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzit.spring.mapper.AccountMapper">
+    <select id="findBy" parameterType="String" resultType="com.xzit.spring.entity.Account">
+        select * from accountinfo where account=#{account} and password=#{password}
+    </select>
+    <insert id="insertAccount" parameterType="String">
+        insert into accountinfo(account, password, roleId) values (#{account},#{password},4)
+    </insert>
+</mapper>

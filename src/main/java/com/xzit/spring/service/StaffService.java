@@ -10,4 +10,5 @@ public interface StaffService {
     Staff findUserBy(@Param("account") String userId, @Param("password") String password);
     List<Staff> findAll();
     PageInfo<Staff> pageSelect(Staff staff,Integer pageNo,Integer pageSize);
+    Staff findById(String workId);
 }

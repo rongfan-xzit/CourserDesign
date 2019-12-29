@@ -21,7 +21,7 @@
 <%--        });--%>
 <%--    });--%>
 <%--    </script>--%>
-
+</script>
 </head>
 <body>
 <script type="text/css">

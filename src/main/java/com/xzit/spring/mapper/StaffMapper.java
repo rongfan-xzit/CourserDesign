@@ -8,4 +8,5 @@ import java.util.List;
 public interface StaffMapper {
     Staff findUserBy(@Param("account") String userId, @Param("password") String password);
     List<Staff> findAll();
+    Staff findById(String workId);
 }

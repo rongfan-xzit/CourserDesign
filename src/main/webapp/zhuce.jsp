@@ -90,32 +90,19 @@
 <body>
 <div class="wrapper">
     <article>
-        <div class="main">
+        <div class="main" >
             <form action="user/register" method="post">
-                <div class="userName">
-                    <input id="account" type="text" name="userId" placeholder="账户" maxlength="15">
+                <div >
+                    <h1>注册</h1>
                 </div>
                 <div class="userName">
-                    <input id="userName" type="text" name="name" placeholder="姓名" onblur="checkUserName();"><span id="name"></span>
-                </div>
-                <div class="tel">
-                    <input id="phone" type="tel" name="phone" placeholder="手机号" maxlength="11" onblur="checkPhone()"><span id="tel"></span>
-                </div>
-                <div>
-                    <input id="sex" type="radio" name="sex" value="男" checked >男
-                    <input  id="sex1" type="radio" name="sex" value="女" >女
-                </div>
-                <div>
-                    <input id="age" type="text" name="age" placeholder="年龄" onblur="checkAge();"><span id="age1"></span>
+                    <input id="account" type="text" name="account" placeholder="账户" maxlength="15">
                 </div>
                 <div class="password">
                     <input id="pwd" type="password" name="password" placeholder="密码"><em id="pass1"></em>
                 </div>
                 <div class="againpwd">
-                    <input id="pwd1" type="password" name="password" placeholder="再次输入密码" onblur="checkPassword();"><span id="pass"></span>
-                </div>
-                <div>
-                    <input id="address" type="text" name="address" placeholder="家庭住址">
+                    <input id="pwd1" type="password" name="password1" placeholder="再次输入密码" onblur="checkPassword();"><span id="pass"></span>
                 </div>
                 <button>注册</button>
             </form>

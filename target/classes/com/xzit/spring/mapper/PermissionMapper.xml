@@ -7,4 +7,13 @@
 		where permission.id = role_permission.sys_permission_id
 		AND role_permission.sys_role_id = #{role_id}
     </select>
+    <select id="getAll" resultType="com.xzit.spring.entity.Permission">
+        select id,name,url,parentid , CASE available WHEN 1 THEN '开启' ELSE '锁定' END available from permission
+    </select>
+    <select id="getsyspermissiontreebyroleid" parameterType="String" resultType="Map">
+          SELECT permission.id, permission.name,permission.parentid pId
+		FROM permission,role_permission
+		where permission.id = role_permission.sys_permission_id
+		AND role_permission.sys_role_id = #{role_id}
+    </select>
 </mapper>

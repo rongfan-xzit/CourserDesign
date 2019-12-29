@@ -7,4 +7,14 @@
     <select id="findAll" resultType="com.xzit.spring.entity.Staff">
         select * from staff
     </select>
+    <select id="findById" parameterType="String" resultType="com.xzit.spring.entity.Staff">
+            select * from staff where wordId=#{workId}
+    </select>
+    <update id="updateStaff">
+        <set>
+        <if test="record.collid != null" >
+            collid = #{record.collid,jdbcType=INTEGER},
+        </if>
+        </set>
+    </update>
 </mapper>

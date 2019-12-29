@@ -49,11 +49,11 @@
             <div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
-                <li class="layui-nav-item layui-nav-itemed">
                     <c:forEach items="${menuMaps}" var="list">
+                        <li class="layui-nav-item layui-nav-itemed">
                     <c:forEach items="${list.value}" var="value">
                         <c:if test="${value.id == value.parentid}">
-                    <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>${value.name}</span></a>
+                        <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>${value.name}</span></a>
                         </c:if>
                     </c:forEach>
                     <dl class="layui-nav-child">
@@ -66,8 +66,9 @@
                         </c:if>
                         </c:forEach>
                     </dl>
+                        </li>
                     </c:forEach>
-                </li>
+
             </ul>
         </div>
     </div>

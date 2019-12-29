@@ -4,7 +4,7 @@ public class Role {
     private String roleid;
     private String name;
     private String description;
-    private String available;
+    private Integer available;
 
     public String getRoleid() {
         return roleid;
@@ -30,11 +30,11 @@ public class Role {
         this.description = description;
     }
 
-    public String getAvailable() {
+    public Integer getAvailable() {
         return available;
     }
 
-    public void setAvailable(String available) {
+    public void setAvailable(Integer available) {
         this.available = available;
     }
 }

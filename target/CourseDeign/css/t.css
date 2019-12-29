@@ -1,0 +1,6 @@
+.page-container{ padding:20px}
+.page-settings {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
