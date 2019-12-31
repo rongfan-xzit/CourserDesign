@@ -1,5 +1,6 @@
 package com.xzit.spring.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xzit.spring.entity.Staff;
@@ -36,7 +37,17 @@ public class StaffServiceImpl implements com.xzit.spring.service.StaffService {
     }
 
     @Override
-    public Staff findById(String workId) {
-        return staffMapper.findById(workId);
+    public PageInfo<Staff> findById(Staff staff, Integer pageNo, Integer pageSize, String name) {
+        pageNo = pageNo ==null?1:pageNo;
+        pageSize = pageSize==null?10:pageSize;
+        PageHelper.startPage(pageNo,pageSize);
+        List<Staff> staffAll = staffMapper.findById(name);
+        PageInfo<Staff> page = new PageInfo<>(staffAll);
+        return page;
+    }
+
+    @Override
+    public void insertStaff(Staff staff) {
+        staffMapper.insertStaff(staff);
     }
 }

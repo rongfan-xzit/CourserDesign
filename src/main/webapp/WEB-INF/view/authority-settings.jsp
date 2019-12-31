@@ -4,12 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-
     <link rel="stylesheet" href="../ztree/css/demo.css" type="text/css">
     <link rel="stylesheet" href="../ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
     <script type="text/javascript" src="../ztree/js/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="../ztree/js/jquery.ztree.core.js"></script>
     <script type="text/javascript" src="../ztree/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="../plugins/layui/lay/modules/layer.js"></script>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../plugins/layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="../plugins/layui/layui.all.js"  media="all">
+    <link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../plugins/layui/layui.all.js" media="all">
+<%--    <link rel="stylesheet" href="../plugins/layui/lay/modules/layer.js">--%>
     <style>
         .page-settings {
             display: flex;
@@ -64,29 +72,36 @@
                     $("#table-role > tbody > tr:eq(0)").remove(); // 删除模板
                 },
                 error: function() {
-                    layer.msg('数据加载失败...', {icon:1,time:2000});
+                    alert('数据加载失败...');
                 }
             });
         }
 
         // 角色权限值的查看
         function admin_role_query(obj) {
-            var role_id = $(obj).parents(".text-c").find("#id").text(); // 查找角色的ID
+            var role_id = $(obj).parents(".text-c").find("#roleid").text(); // 查找角色的ID
             var zTreeObj = $.fn.zTree.getZTreeObj("ztreedemo"); // 获取权限数的对象  <ul id="ztreedemo"></ul>
-            var nodes = zTreeObj.transformToArray(zTreeObj.getNodes()); // 获取全部节点，将节点转换为数组
+            let nodes = zTreeObj.transformToArray(zTreeObj.getNodes()); // 获取全部节点，将节点转换为数组
 
             $.ajax({
-                url: '/CourseDeign_war_exploded/authority/getsyspermissiontreebyroleid',
+                url: '../authority/getsyspermissiontreebyroleid',
                 type: 'GET',
                 data: {'role_id': role_id},
                 dataType: 'json',
                 success: function(data) { // 此data就带有checked属性
-                    if(data && nodes && data.length > 0 && nodes.length > 0) {
-                        zTreeObj.removeChildNodes(nodes[0]); // 删除原来的权限树，删除根节点
-                        zTreeObj.updateNode(nodes[0], true); // 删除权限后记得进行更新操作
-                        zTreeObj = $.fn.zTree.init($("#ztreedemo"), setting, data); //加载新的数据
-                        zTreeObj.expandAll(true); // 展开全部的节点
+                    for (let k = 0; k < nodes.length; k++)
+                        zTreeObj.checkNode(nodes[k], false);
+
+                    for(var i=0;i<data.length;i++) {
+                        let item = zTreeObj.getNodeByParam("id",data[i].id);
+                        zTreeObj.checkNode(item,true);
                     }
+                    // if(data && nodes && data.length > 0 && nodes.length > 0) {
+                    //     zTreeObj.removeChildNodes(nodes[0]); // 删除原来的权限树，删除根节点
+                    //     zTreeObj.updateNode(nodes[0], true); // 删除权限后记得进行更新操作
+                    //     zTreeObj = $.fn.zTree.init($("#ztreedemo"), setting, data); //加载新的数据
+                    //     zTreeObj.expandAll(true); // 展开全部的节点
+                    // }
                 }
             })
         }
@@ -103,38 +118,27 @@
 
             var ids = []; // 权限值数组
             for(var i = 0; i < nodes.length; i++) {
-                if (nodes[i].id==1)
-                {
-                    continue;
-                }
                 ids.push(nodes[i].id); // 选中的权限值存入到数组里面
             }
-            var role_id = $(obj).parents(".text-c").find("#id").text(); // 查找角色的ID
+            var role_id = $(obj).parents(".text-c").find("#roleid").text(); // 查找角色的ID
             // console.log(ids.join('-')); // 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔
             // console.log(role_id);
 
             // 提交需要更新的权限数据
             $.ajax({
-                url: '/CourseDeign_war_exploded/authority/updatepermissionbyroleid',
+                url: '../authority/updatepermissionbyroleid',
                 type: 'POST',
                 dataType: 'json',
                 data: {'role_id':role_id, 'permission_ids': ids},
                 success: function(data) {
-                    console.log(data);
-                    if(data==-1)
-                    {
-                        layer.msg('你暂无权限操作...', {icon:1,time:3000})
-                    }
-                    else if(data==-2)
-                    {
-                        layer.msg('权限不足...', {icon:1,time:3000})
-                    }
-                    else if(data==1){
-                        layer.msg('权限分配成功...', {icon: 1, time: 3000})
+                    console.log("**************8",data);
+
+                   if(data==1){
+                     alert('权限分配成功...',{icon:1,time:3000});
                     }
                 },
                 error: function() {
-                    layer.msg('权限分配失败...', {icon:1,time:3000})
+                   alert('权限分配失败...',{icon:1,time:3000});
                 }
             });
         }
@@ -150,8 +154,8 @@
 <div class="page-container">
     <div class="page-settings">
         <ul id="ztreedemo" class="ztree"></ul>
-        <ul class="ztree" style="width: 70%;">
-            <table class="layui-hide" lay-filter="table-role"  id="table-role">
+        <ul  class="ztree" style="width:85%;" >
+            <table class="layui-table" style="width: 60%" id="table-role">
                 <thead>
                 <tr>
                     <th scope="col" colspan="6">角色管理</th>

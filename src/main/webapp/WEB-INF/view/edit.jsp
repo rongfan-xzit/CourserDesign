@@ -108,20 +108,7 @@
                     <input type="text" name="xf" lay-verify="required|number" autocomplete="off" class="layui-input" value="${courseInfo.xf}">
                 </div>
             </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">课程类别</label>
-                <div class="layui-input-inline">
-                    <select name="kclx" lay-verify="required">
-                        <option value="">选择课程类别</option>
-                        <option value="通识必修课"${courseInfo.kclx=="通识必修课"?"selected":""}>通识必修课</option>
-                        <option value="通识选修课"${courseInfo.kclx=="通识选修课"?"selected":""}>通识选修课</option>
-                        <option value="学科基础课" ${courseInfo.kclx=="学科基础课"?"selected":""}>学科基础课</option>
-                        <option value="专业选修课"${courseInfo.kclx=="专业选修课"?"selected":""}>专业选修课</option>
-                        <option value="集中实践课"${courseInfo.kclx=="集中实践课"?"selected":""}>集中实践课</option>
-                        <option value="-" ${courseInfo.kclx=="-"?"selected":""}>其它</option>
-                    </select>
-                </div>
-            </div>
+
             <div class="layui-inline">
                 <label class="layui-form-label">备注</label>
                 <div class="layui-input-inline">

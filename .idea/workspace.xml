@@ -6,152 +6,76 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8ebec2e-e755-49df-b392-4f9a8c60d507" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/PermissionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/AccountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/AccountServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/AccountMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/AuthorityMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/Rolelist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authority-settings.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/f.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/t.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/awesomeStyle/awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/awesomeStyle/awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/awesomeStyle/fa.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/awesomeStyle/img/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/metroStyle/img/line_conn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/metroStyle/img/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/metroStyle/img/metro.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/metroStyle/img/metro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/metroStyle/metroStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/1_close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/1_open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/diy/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/line_conn.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/zTreeStandard.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/img/zTreeStandard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/zTreeStyle/zTreeStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery-1.4.4.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.core.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.excheck.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.excheck.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.exedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.exedit.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.exhide.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ztree/js/jquery.ztree.exhide.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="d8ebec2e-e755-49df-b392-4f9a8c60d507" name="Default Changelist" comment="荣帆修改了SSM">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/dto/AjaxOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/dto/StaffAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/dto/StaffDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/add.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/PermissionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/StaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/dto/StaffDatagrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/dto/Datagrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/SuperAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/entity/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/AccountMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/PermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/RoleMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/StaffMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/StaffMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/SuperAdminMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/PermissionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/StaffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/StaffService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/SuperAdminService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/AccountServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/PermissionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/StaffServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/StaffServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/SuperAdminServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzit/spring/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/AccountMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/PermissionMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/StaffMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/StaffMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/SuperAdminMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xzit/spring/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authority-settings.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authority-settings.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/build/css/ztree/awesome/ztree.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/build/css/ztree/default/ztree.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/build/css/ztree/metro/ztree.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/build/js/nprogress.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/build/js/nprogress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/regist.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/regist.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/src/js/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/src/js/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/zhuce.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/zhuce.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ztree/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ztree/css/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/META-INF/CourseDeign.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/controller/PermissionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/controller/PermissionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/controller/StaffController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/controller/StaffController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/dto/StaffDatagrid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/Permission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/SuperAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/entity/Staff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/AccountMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/AccountMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/AccountMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/PermissionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/PermissionMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/RoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/RoleMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/StaffMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/StaffMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/StaffMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/StaffMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/SuperAdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/SuperAdminMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/AccountService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/PermissionService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/StaffService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/StaffService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/SuperAdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/AccountServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/PermissionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/PermissionServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/StaffServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/StaffServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/SuperAdminServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/classes/com/xzit/spring/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/authority-settings.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/authority-settings.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/WEB-INF/view/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/build/js/nprogress.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/build/js/nprogress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/css/regist.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/css/regist.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/build/css/ztree/awesome/ztree.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/build/css/ztree/default/ztree.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/build/css/ztree/metro/ztree.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CourseDeign/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/src/js/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/src/js/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CourseDeign/zhuce.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/zhuce.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/plugins/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/plugins/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CourseDeign/ztree/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/CourseDeign/ztree/css/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/CourseDeign.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/controller/PermissionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/controller/PermissionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/controller/StaffController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/controller/StaffController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/dto/StaffDatagrid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/Permission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/SuperAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/entity/Staff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/AccountMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/AccountMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/AccountMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/PermissionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/PermissionMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/RoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/RoleMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/StaffMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/StaffMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/StaffMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/StaffMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/SuperAdminMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/SuperAdminMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/AccountService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/PermissionService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/StaffService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/StaffService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/SuperAdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/AccountServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/PermissionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/PermissionServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/StaffServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/StaffServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/SuperAdminServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xzit/spring/service/impl/UserServiceImpl.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +114,7 @@
         <item name="jdbc:mysql://localhost:3306/ice_box?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf-8" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="ice_box: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="permission: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="accountinfo: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -199,6 +123,20 @@
         <item name="ice_box: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="role: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="jdbc:mysql://localhost:3306/ice_box?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf-8" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ice_box: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="role_permission: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="jdbc:mysql://localhost:3306/ice_box?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf-8" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ice_box: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="staff: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -206,8 +144,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -263,7 +201,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/2019-2020年第一学期Java/springboot/xiangmu/courseDesigh" />
+    <property name="last_opened_file_path" value="E:/cousr/shiyan" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -272,19 +210,19 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp" />
-      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\WEB-INF\view" />
-      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\jquery" />
-      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\images" />
-      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\css" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\resources\com\xzit\spring" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.xzit.spring.dto" />
       <recent name="com.xzit.spring.entity" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\resources\com\xzit\spring" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\WEB-INF\view" />
+      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\ztree\js" />
+      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp" />
+      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\jquery" />
+      <recent name="E:\2019year-CourseDeign\CourseDeign\src\main\webapp\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -366,7 +304,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.012303486" />
+          <option name="contentProportion" value="0.08811475" />
           <treeState>
             <expand>
               <path>
@@ -412,7 +350,11 @@
       <workItem from="1577601649799" duration="4904000" />
       <workItem from="1577607604060" duration="3721000" />
       <workItem from="1577613735760" duration="7693000" />
-      <workItem from="1577621529457" duration="3331000" />
+      <workItem from="1577621529457" duration="13335000" />
+      <workItem from="1577665413143" duration="10041000" />
+      <workItem from="1577686138324" duration="10373000" />
+      <workItem from="1577711998245" duration="1861000" />
+      <workItem from="1577751158332" duration="7358000" />
     </task>
     <task id="LOCAL-00001" summary="荣帆创建了SSM">
       <created>1576543864066</created>
@@ -428,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577359238677</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="荣帆修改了SSM">
+      <created>1577625002152</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577625002152</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,94 +401,94 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="497" y="221" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1576679013329" />
-    <state x="958" y="108" key="#com.intellij.ide.util.MemberChooser" timestamp="1577618881549">
+    <state x="958" y="108" key="#com.intellij.ide.util.MemberChooser" timestamp="1577757658981">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="958" y="108" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577618881549" />
+    <state x="958" y="108" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577757658981" />
     <state x="156" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1577606378079">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="156" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1577606378079" />
-    <state x="377" y="6" key="CommitChangelistDialog2" timestamp="1577359224768">
+    <state x="377" y="6" key="CommitChangelistDialog2" timestamp="1577758938687">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="377" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577359224768" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1577621738208">
+    <state x="377" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577758938687" />
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1577757525194">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577621738208" />
-    <state width="1445" height="110" key="GridCell.Tab.0.bottom" timestamp="1577624580721">
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577757525194" />
+    <state width="1334" height="2" key="GridCell.Tab.0.bottom" timestamp="1577757675850">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577624580721" />
-    <state width="1445" height="110" key="GridCell.Tab.0.center" timestamp="1577624580721">
+    <state width="1334" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577757675850" />
+    <state width="1334" height="2" key="GridCell.Tab.0.center" timestamp="1577757675850">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577624580721" />
-    <state width="1445" height="110" key="GridCell.Tab.0.left" timestamp="1577624580721">
+    <state width="1334" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577757675850" />
+    <state width="1334" height="2" key="GridCell.Tab.0.left" timestamp="1577757675849">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577624580721" />
-    <state width="1445" height="110" key="GridCell.Tab.0.right" timestamp="1577624580721">
+    <state width="1334" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577757675849" />
+    <state width="1334" height="2" key="GridCell.Tab.0.right" timestamp="1577757675850">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577624580721" />
-    <state width="1445" height="110" key="GridCell.Tab.1.bottom" timestamp="1577624580658">
+    <state width="1334" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577757675850" />
+    <state width="1334" height="2" key="GridCell.Tab.1.bottom" timestamp="1577757675769">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577624580658" />
-    <state width="1445" height="110" key="GridCell.Tab.1.center" timestamp="1577624580658">
+    <state width="1334" height="2" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577757675769" />
+    <state width="1334" height="2" key="GridCell.Tab.1.center" timestamp="1577757675769">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1577624580658" />
-    <state width="1445" height="110" key="GridCell.Tab.1.left" timestamp="1577624580658">
+    <state width="1334" height="2" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1577757675769" />
+    <state width="1334" height="2" key="GridCell.Tab.1.left" timestamp="1577757675769">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1577624580658" />
-    <state width="1445" height="110" key="GridCell.Tab.1.right" timestamp="1577624580658">
+    <state width="1334" height="2" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1577757675769" />
+    <state width="1334" height="2" key="GridCell.Tab.1.right" timestamp="1577757675769">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1577624580658" />
-    <state width="1445" height="110" key="GridCell.Tab.2.bottom" timestamp="1577624580659">
+    <state width="1334" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1577757675769" />
+    <state width="1334" height="2" key="GridCell.Tab.2.bottom" timestamp="1577757675770">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577624580659" />
-    <state width="1445" height="110" key="GridCell.Tab.2.center" timestamp="1577624580658">
+    <state width="1334" height="2" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577757675770" />
+    <state width="1334" height="2" key="GridCell.Tab.2.center" timestamp="1577757675770">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1577624580658" />
-    <state width="1445" height="110" key="GridCell.Tab.2.left" timestamp="1577624580658">
+    <state width="1334" height="2" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1577757675770" />
+    <state width="1334" height="2" key="GridCell.Tab.2.left" timestamp="1577757675770">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1577624580658" />
-    <state width="1445" height="110" key="GridCell.Tab.2.right" timestamp="1577624580659">
+    <state width="1334" height="2" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1577757675770" />
+    <state width="1334" height="2" key="GridCell.Tab.2.right" timestamp="1577757675770">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1445" height="110" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1577624580659" />
-    <state width="1024" height="247" key="GridCell.Tab.3.bottom" timestamp="1576678247845">
+    <state width="1334" height="2" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1577757675770" />
+    <state width="1334" height="188" key="GridCell.Tab.3.bottom" timestamp="1577756196834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="247" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576678247845" />
-    <state width="1024" height="247" key="GridCell.Tab.3.center" timestamp="1576678247845">
+    <state width="1334" height="188" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577756196834" />
+    <state width="1334" height="188" key="GridCell.Tab.3.center" timestamp="1577756196834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="247" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1576678247845" />
-    <state width="1024" height="247" key="GridCell.Tab.3.left" timestamp="1576678247845">
+    <state width="1334" height="188" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1577756196834" />
+    <state width="1334" height="188" key="GridCell.Tab.3.left" timestamp="1577756196834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="247" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1576678247845" />
-    <state width="1024" height="247" key="GridCell.Tab.3.right" timestamp="1576678247845">
+    <state width="1334" height="188" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1577756196834" />
+    <state width="1334" height="188" key="GridCell.Tab.3.right" timestamp="1577756196834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="247" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1576678247845" />
+    <state width="1334" height="188" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1577756196834" />
     <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1577408945908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="212" height="477" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1577408945908" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1577359267997">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1577625001736">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577359267997" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577625001736" />
     <state x="349" y="70" key="com.intellij.database.dbimport.ImportDialog" timestamp="1577412436360">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -548,5 +497,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1577602527393" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1577687626400">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1577687626400" />
   </component>
 </project>

@@ -19,4 +19,9 @@ public class AccountServiceImpl implements AccountService {
     public void insertAccount(String account, String password) {
         accountMapper.insertAccount(account,password);
     }
+
+    @Override
+    public void insertStaffAccount(String account, String password, String roleId) {
+        accountMapper.insertStaffAccount(account,password,roleId);
+    }
 }

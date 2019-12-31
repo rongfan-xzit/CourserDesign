@@ -7,4 +7,7 @@
     <insert id="insertAccount" parameterType="String">
         insert into accountinfo(account, password, roleId) values (#{account},#{password},4)
     </insert>
+    <insert id="insertStaffAccount" parameterType="String"  >
+         insert into accountinfo(account, password, roleId) values (#{account},#{password},#{roleId})
+    </insert>
 </mapper>

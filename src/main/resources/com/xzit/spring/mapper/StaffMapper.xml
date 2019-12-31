@@ -8,13 +8,16 @@
         select * from staff
     </select>
     <select id="findById" parameterType="String" resultType="com.xzit.spring.entity.Staff">
-            select * from staff where wordId=#{workId}
+            select * from staff where name=#{name}
     </select>
-    <update id="updateStaff">
-        <set>
-        <if test="record.collid != null" >
-            collid = #{record.collid,jdbcType=INTEGER},
-        </if>
-        </set>
-    </update>
+<!--    <update id="updateStaff">-->
+<!--        <set>-->
+<!--        <if test="record.collid != null" >-->
+<!--            collid = #{record.collid,jdbcType=INTEGER},-->
+<!--        </if>-->
+<!--        </set>-->
+<!--    </update>-->
+    <insert id="insertStaff" parameterType="com.xzit.spring.entity.Staff">
+        insert into staff values (#{staff.workId},#{staff.type},#{staff.name},#{staff.phone},#{staff.sex},#{staff.age},#{staff.userInfoId})
+    </insert>
 </mapper>

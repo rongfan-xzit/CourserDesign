@@ -27,4 +27,14 @@ public class PermissionServiceImpl implements PermissionService {
     public List<Map<String, Object>> getsyspermissiontreebyroleid(String role_id) {
         return permissionMapper.getsyspermissiontreebyroleid(role_id);
     }
+
+    @Override
+    public void deletePerByRoleId(String role_id) {
+        permissionMapper.deletePerByRoleId(role_id);
+    }
+
+    @Override
+    public void updatePermissionByRoleId(String role_id, List<Object> permission_id) {
+        permissionMapper.updatePermissionByRoleId(role_id,permission_id);
+    }
 }

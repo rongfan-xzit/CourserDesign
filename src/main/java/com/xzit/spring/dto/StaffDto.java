@@ -1,33 +1,24 @@
-package com.xzit.spring.entity;
+package com.xzit.spring.dto;
 
-public class Staff {
+import com.xzit.spring.entity.Account;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+@Validated
+public class StaffDto extends Account {
+    @NotNull
     private String workId;
     private String type;
+    @Pattern(regexp = "^[\\u4e00-\\u9fa5]{0,}$",message = "姓名必须为中文")
     private String name;
+    @Pattern(regexp = "^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$",message = "手机号格式不正确")
     private String phone;
     private String sex;
+    @Pattern(regexp = "^[0-9]*$",message = "年龄要是数字")
     private String age;
     private Integer userInfoId;
-    public Staff() {
-    }
-
-    public Staff(String workId, String type, String name, String phone, String sex, String age, Integer userInfoId) {
-        this.workId = workId;
-        this.type = type;
-        this.name = name;
-        this.phone = phone;
-        this.sex = sex;
-        this.age = age;
-        this.userInfoId = userInfoId;
-    }
-
-    public Integer getUserInfoId() {
-        return userInfoId;
-    }
-
-    public void setUserInfoId(Integer userInfoId) {
-        this.userInfoId = userInfoId;
-    }
 
     public String getWorkId() {
         return workId;
@@ -77,4 +68,13 @@ public class Staff {
         this.age = age;
     }
 
+    @Override
+    public Integer getUserInfoId() {
+        return userInfoId;
+    }
+
+    @Override
+    public void setUserInfoId(Integer userInfoId) {
+        this.userInfoId = userInfoId;
+    }
 }

@@ -7,10 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>冰箱工单管理系统</title>
-    <link rel="stylesheet" href="/CourseDeign_war_exploded/plugins/layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="/CourseDeign_war_exploded/plugins/font-awesome/css/font-awesome.min.css" media="all" />
-    <link rel="stylesheet" href="/CourseDeign_war_exploded/src/css/app.css" media="all" />
-    <link rel="stylesheet" href="/CourseDeign_war_exploded/src/css/themes/default.css" media="all" id="skin" kit-skin />
+    <link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../src/css/app.css" media="all" />
+    <link rel="stylesheet" href="../src/css/themes/default.css" media="all" id="skin" kit-skin />
 </head>
 
 <body class="kit-theme">
@@ -85,7 +85,7 @@
       var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
       document.write(unescape("%3Cspan id='cnzz_stat_icon_1264021086'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264021086%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
   </script> -->
-<script src="/CourseDeign_war_exploded/plugins/layui/layui.js"></script>
+<script src="../plugins/layui/layui.js"></script>
 <script>
     var message;
     layui.config({
@@ -105,7 +105,7 @@
             layer.open({
                 title: false,
                 type: 1,
-                content: '<img src="/CourseDeign_war_exploded/src/images/pay.png" />',
+                content: '<img src="../src/images/pay.png" />',
                 area: ['500px', '250px'],
                 shadeClose: true
             });
@@ -136,6 +136,7 @@
             }();
     });
 </script>
+</div>
 </body>
 
 </html>

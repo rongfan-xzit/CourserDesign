@@ -81,17 +81,45 @@
                         shade: 0.5,
                         maxmin: true, //开启最大化最小化按钮
                         area: ['1000px', '600px'],
-                        content: '${pageContext.request.contextPath}/courseinfo/toedit/'+workId
+                        content: '${pageContext.request.contextPath}/staff/toedit/'+workId
+                    });
+                },
+                toedit1:function (winTitle,workId) {
+                    layer.open({
+                        type: 2,
+                        title: '添加员工信息',
+                        shadeClose: false,
+                        shade: 0.5,
+                        maxmin: true, //开启最大化最小化按钮
+                        area: ['1000px', '600px'],
+                        content: '${pageContext.request.contextPath}/staff/toadd/'
                     });
                 }
             };
 
             $('#queryBtn').on('click', function(){
-                active.reload();
+                //执行重载
+                table.reload('courselist', {
+                    elem: '#courselist'
+                    ,url:'${pageContext.request.contextPath}/staff/staffInfo/'+$('#kcm').val().toString()
+                    ,title: '课程数据表'
+                    ,method:'GET'
+                    ,cols:  [[
+                        {type: 'checkbox', fixed: 'left'}
+                        ,{field:'workId', title:'workId', width:100,hidden:true}
+                        ,{field:'type', title:'角色', width:120}
+                        ,{field:'name', title:'名字', width:120}
+                        ,{field:'phone', title:'手机号', width:120}
+                        ,{field:'sex', title:'性别', width:120}
+                        ,{field:'age', title:'年龄', width:160}
+                        ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                    ]]
+                    ,page: true
+                });
             });
 
             $("#addBtn").click(function () {
-                active.toedit("修改员工信息",0);
+                active.toedit1("添加员工信息",0);
             });
 
             //监听行工具事件
