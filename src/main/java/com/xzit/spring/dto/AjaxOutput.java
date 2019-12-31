@@ -43,7 +43,7 @@ public class AjaxOutput implements Serializable {
         this.message = message;
     }
 
-    public Object getData(List<ObjectError> allErrors) {
+    public Object getData() {
         return data;
     }
 

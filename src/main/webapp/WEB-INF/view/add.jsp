@@ -76,18 +76,13 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="ajaxsavebtn">保存(ajax)</button>
+                <button class="layui-btn" lay-submit="" lay-filter="ajaxsavebtn">保存</button>
                 <button class="layui-btn layui-btn-primary btn-close">关闭</button>
             </div>
         </div>
 
         <div class="layui-form-item">
             <div class="layui-input-block" style="color:red;">
-                <!--错误消息显示-->
-                <!--呈现错误信息-->
-                <c:forEach items="${allErrors}" var="error">
-                    ${error.defaultMessage} &nbsp;&nbsp;
-                </c:forEach>
                 <div class="ajaxerrordiv"></div>
             </div>
         </div>
@@ -120,7 +115,7 @@
                 $(".ajaxerrordiv").html();
                 //发起ajax请求
                 $.ajax({
-                    url:"${pageContext.request.contextPath}/staff/ajaxvalid",
+                    url:"${pageContext.request.contextPath}/staff/valid/",
                     type:"post",
                     data:json,
                     contentType:"application/json",
@@ -129,15 +124,19 @@
                         progressLoad("系统正在执行数据提交操作，请稍后...")
                     },
                     success:function(result){
+                        console.log("111");
                         progressClose();
                         //请求发送成功后
                         var msgkey =result.msgkey;
                         var message =result.message;
-                        if(msgkey=="validerror"){
+                        console.log(result);
+                        if(msgkey=="vailderror"){
                             //验证失败
                             //对json数组进行遍历
+                            console.log("2222222");
                             var errorMsg="";
-                            $.each(result.data,function (index,value) {
+                            $.each(result.data,function(index,value) {
+                                console.log("3333333333333");
                                 errorMsg+= value.defaultMessage;
                             });
                           $(".ajaxerrordiv").html(errorMsg);
@@ -146,15 +145,19 @@
                             // 关闭当前窗体
                             alert("提交成功");
                             progressClose();
-                            //数据表格reload
-                            //window.parent.location.reload();
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index); //再执行关闭
+                            window.parent.location.reload();
                         }
                     },
-                    complete:function(XMLHttpRequest,textStatus){
+                    complete:function(XMLHttpRequest,result){
                         //请求发送完成
+                        console.log("fasong");
+                        console.log(XMLHttpRequest)
                     },
                     error:function(XMLHttpRequest,textStatus){
                         //请求发送失败
+                        console.log(XMLHttpRequest)
                     }
                 });
                 //将layui表单域值转换为JSON串：JSON.stringify(data.field)

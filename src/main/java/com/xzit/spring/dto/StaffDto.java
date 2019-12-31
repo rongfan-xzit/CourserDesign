@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Validated
-public class StaffDto extends Account {
+public class StaffDto  {
     @NotNull
     private String workId;
     private String type;
@@ -18,7 +18,15 @@ public class StaffDto extends Account {
     private String sex;
     @Pattern(regexp = "^[0-9]*$",message = "年龄要是数字")
     private String age;
-    private Integer userInfoId;
+    private String roleId;
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
 
     public String getWorkId() {
         return workId;
@@ -68,13 +76,4 @@ public class StaffDto extends Account {
         this.age = age;
     }
 
-    @Override
-    public Integer getUserInfoId() {
-        return userInfoId;
-    }
-
-    @Override
-    public void setUserInfoId(Integer userInfoId) {
-        this.userInfoId = userInfoId;
-    }
 }

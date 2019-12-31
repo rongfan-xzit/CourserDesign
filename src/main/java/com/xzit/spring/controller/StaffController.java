@@ -16,6 +16,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -58,13 +59,16 @@ public class StaffController {
         staffDatagrid.setMsg("员工查询信息结果");
         return staffDatagrid;
     }
+
     @RequestMapping("toadd")
     public String toadd()
     {
         return "add";
     }
-    @RequestMapping("ajaxvalid")
-    public AjaxOutput ajaxAdd(@Validated @RequestBody StaffDto staffDto, BindingResult bindingResult) throws Exception
+
+    @RequestMapping(value = "/valid",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public AjaxOutput ajaxAdd(@Valid @RequestBody  StaffDto staffDto, BindingResult bindingResult) throws Exception
     {
         AjaxOutput ajaxOutput = new AjaxOutput();
         if(bindingResult.hasErrors())
@@ -72,12 +76,12 @@ public class StaffController {
             List<ObjectError> allErrors = bindingResult.getAllErrors();
             ajaxOutput.setMsgkey("vailderror");
             ajaxOutput.setMessage("数据校验失败");
-            ajaxOutput.getData(allErrors);
+            ajaxOutput.setData(allErrors);
             return ajaxOutput;
         }
         accountService.insertStaffAccount(staffDto.getWorkId(),"123",staffDto.getRoleId());
         Account account = accountService.findBy(staffDto.getWorkId(), "123");
-        Staff staff = new Staff(staffDto.getWorkId(),staffDto.getType(),staffDto.getName(),staffDto.getPhone(),staffDto.getSex(),staffDto.getAge(),account.getUserInfoId());
+        Staff staff = new Staff(staffDto.getWorkId()    ,staffDto.getType(),staffDto.getName(),staffDto.getPhone(),staffDto.getSex(),staffDto.getAge(),account.getUserInfoId());
         staffService.insertStaff(staff);
         ajaxOutput.setMessage("数据保存成功");
         return ajaxOutput;
