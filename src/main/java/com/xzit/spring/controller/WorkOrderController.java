@@ -6,9 +6,15 @@ import com.xzit.spring.entity.WorkOrder;
 import com.xzit.spring.service.WorkOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 
 @Controller
@@ -44,5 +50,27 @@ public class WorkOrderController {
         workOrderDatagrid.setData(workOrderPageInfo.getList());
         workOrderDatagrid.setMsg("工单查询信息结果");
         return workOrderDatagrid;
+    }
+
+    /**
+     * 上传图片
+     * @param file
+     * @param workOrder
+     * @param map
+     * @throws Exception
+     */
+    @RequestMapping("/save")
+    public void save( MultipartFile file, WorkOrder workOrder, ModelMap map) throws Exception {
+        workOrderService.save(file,workOrder,map);
+    }
+    @RequestMapping("/listImages/{id}")
+    public ModelAndView list(@PathVariable String id)
+    {
+        System.out.println(id);
+       List<WorkOrder> workOrders = workOrderService.findByWorkId(id);
+       ModelAndView mv = new ModelAndView();
+       mv.addObject("workOrders",workOrders);
+       mv.setViewName("WorkOrderContent");
+       return mv;
     }
 }

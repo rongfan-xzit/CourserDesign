@@ -26,6 +26,7 @@
         </div>
         </div>
         <a class="layui-btn mgl-20" data-type="reload" id="queryBtn">查询</a>
+        <a class="layui-btn mgl-20" data-type="reload" id="findBtn">查询空闲技术人员</a>
     </form>
     <!--用户数据表格-->
     <table class="layui-hide" id="courselist" lay-filter="courselist"></table>
@@ -105,7 +106,6 @@
                     });
                 },
                 toedit:function (winTitle,workId) {
-                    console.log(workId);
                     layer.open({
                         type: 2,
                         title: '工单详细信息',
@@ -113,20 +113,9 @@
                         shade: 0.5,
                         maxmin: true, //开启最大化最小化按钮
                         area: ['1000px', '600px'],
-                        content: '${pageContext.request.contextPath}/staff/toedit/'+workId
+                        content: '${pageContext.request.contextPath}/workOrder/listImages/'+workId
                     });
                 },
-                toedit1:function (winTitle,workId) {
-                    layer.open({
-                        type: 2,
-                        title: '添加员工信息',
-                        shadeClose: false,
-                        shade: 0.5,
-                        maxmin: true, //开启最大化最小化按钮
-                        area: ['1000px', '600px'],
-                        content: '${pageContext.request.contextPath}/staff/toadd/'
-                    });
-                }
             };
 
             $('#queryBtn').on('click', function(){
@@ -148,10 +137,6 @@
                     ]]
                     ,page: true
                 });
-            });
-
-            $("#addBtn").click(function () {
-                active.toedit1("添加员工信息",0);
             });
 
             //监听行工具事件
@@ -176,7 +161,7 @@
                         })
                     });
                 } else if(obj.event === 'edit'){
-                    var  id1 = data[0,"workId"]
+                    var  id1 = data[0,"workorderid"]
                     active.toedit("徐州工程学院教学工作量核算系统-修改课程信息",id1);
                 }
             });

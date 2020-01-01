@@ -19,7 +19,7 @@
     </blockquote>
 
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-        <legend>员工信息信息</legend>
+        <legend>员工信息</legend>
     </fieldset>
 
     <form class="layui-form" action="" id="courseform">

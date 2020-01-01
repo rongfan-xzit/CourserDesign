@@ -6,4 +6,10 @@
           ,workorder.questionType,users.name from workorder,users where
           workorder.userid=users.userId and workorder.workOrderStatus='0'
     </select>
+    <select id="findByWorkId" parameterType="String" resultType="com.xzit.spring.entity.WorkOrder">
+        select workorder.*,users.name from workorder,users where workorderid=#{workId} and workorder.userid=users.userId
+    </select>
+    <insert id="insertBywork" parameterType="String">
+        insert into workorder(workorderid,image) values (#{workOrderId},#{image})
+    </insert>
 </mapper>
