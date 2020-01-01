@@ -1130,7 +1130,7 @@
     <table id="291" parent="2" name="role_permission"/>
     <table id="292" parent="2" name="staff"/>
     <table id="293" parent="2" name="superadmin"/>
-    <table id="294" parent="2" name="user"/>
+    <table id="294" parent="2" name="users"/>
     <table id="295" parent="2" name="workorder"/>
     <column id="296" parent="281" name="userInfoId">
       <Position>1</Position>
@@ -1248,7 +1248,7 @@
     </foreign-key>
     <foreign-key id="317" parent="283" name="userid5">
       <ColNames>userId</ColNames>
-      <RefTableName>user</RefTableName>
+      <RefTableName>users</RefTableName>
       <RefColNames>userId</RefColNames>
     </foreign-key>
     <column id="318" parent="284" name="complaintsid">
@@ -1306,7 +1306,7 @@
     </foreign-key>
     <foreign-key id="328" parent="284" name="userid6">
       <ColNames>userId</ColNames>
-      <RefTableName>user</RefTableName>
+      <RefTableName>users</RefTableName>
       <RefColNames>userId</RefColNames>
     </foreign-key>
     <column id="329" parent="285" name="id">
@@ -1446,7 +1446,7 @@
     </key>
     <foreign-key id="353" parent="287" name="userid2">
       <ColNames>userid</ColNames>
-      <RefTableName>user</RefTableName>
+      <RefTableName>users</RefTableName>
       <RefColNames>userId</RefColNames>
     </foreign-key>
     <foreign-key id="354" parent="287" name="goodsid2">
@@ -1627,7 +1627,7 @@
     </column>
     <column id="387" parent="292" name="type">
       <Position>2</Position>
-      <Comment>类型</Comment>
+      <Comment>类型 0-5初始为0 越往上表示该员工服务类型越好</Comment>
       <DataType>varchar(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1784,12 +1784,12 @@
     <column id="415" parent="295" name="questionType">
       <Position>5</Position>
       <Comment>问题类型</Comment>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="416" parent="295" name="questionDate">
       <Position>6</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="417" parent="295" name="paymethod">
@@ -1824,7 +1824,7 @@
     <column id="422" parent="295" name="appointment">
       <Position>12</Position>
       <Comment>预约处理时间</Comment>
-      <DataType>datetime|0s</DataType>
+      <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="423" parent="295" name="checkResult">
@@ -1845,52 +1845,64 @@
       <DataType>int(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="426" parent="295" name="staffid">
+    <column id="426" parent="295" name="workOrderStatus">
+      <Position>16</Position>
+      <Comment>0表示待分配 1表示已经分配</Comment>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="427" parent="295" name="image">
+      <Position>17</Position>
+      <Comment>图片</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="428" parent="295" name="staffid">
       <ColNames>staffid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="427" parent="295" name="aftercareid">
+    <index id="429" parent="295" name="aftercareid">
       <ColNames>aftersalecardid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="428" parent="295" name="userid3">
+    <index id="430" parent="295" name="userid3">
       <ColNames>userid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="429" parent="295" name="orderId5">
+    <index id="431" parent="295" name="orderId5">
       <ColNames>orderId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="430" parent="295" name="consumId">
+    <index id="432" parent="295" name="consumId">
       <ColNames>consumableId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="431" parent="295" name="PRIMARY">
+    <key id="433" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>workorderid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="432" parent="295" name="staffid">
+    <foreign-key id="434" parent="295" name="staffid">
       <ColNames>staffid</ColNames>
       <RefTableName>staff</RefTableName>
       <RefColNames>workId</RefColNames>
     </foreign-key>
-    <foreign-key id="433" parent="295" name="aftercareid">
+    <foreign-key id="435" parent="295" name="aftercareid">
       <ColNames>aftersalecardid</ColNames>
       <RefTableName>aftersalecard</RefTableName>
       <RefColNames>aftersalecardid</RefColNames>
     </foreign-key>
-    <foreign-key id="434" parent="295" name="userid3">
+    <foreign-key id="436" parent="295" name="userid3">
       <ColNames>userid</ColNames>
-      <RefTableName>user</RefTableName>
+      <RefTableName>users</RefTableName>
       <RefColNames>userId</RefColNames>
     </foreign-key>
-    <foreign-key id="435" parent="295" name="orderId5">
+    <foreign-key id="437" parent="295" name="orderId5">
       <ColNames>orderId</ColNames>
       <RefTableName>order</RefTableName>
       <RefColNames>orderid</RefColNames>
     </foreign-key>
-    <foreign-key id="436" parent="295" name="consumId">
+    <foreign-key id="438" parent="295" name="consumId">
       <ColNames>consumableId</ColNames>
       <RefTableName>consumables</RefTableName>
       <RefColNames>id</RefColNames>

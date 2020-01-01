@@ -10,4 +10,10 @@
     <insert id="insertStaffAccount" parameterType="String"  >
          insert into accountinfo(account, password, roleId) values (#{account},#{password},#{roleId})
     </insert>
+    <update id="updateByWorkId" parameterType="String">
+        update accountinfo set roleId=#{roleId} where userInfoId =(select staff.userInfoId from staff where workId=#{workId})
+    </update>
+    <delete id="deleteByWorkId" parameterType="String">
+        delete from accountinfo where account=#{wordId}
+    </delete>
 </mapper>

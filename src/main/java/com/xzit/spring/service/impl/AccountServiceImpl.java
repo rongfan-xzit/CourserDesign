@@ -24,4 +24,14 @@ public class AccountServiceImpl implements AccountService {
     public void insertStaffAccount(String account, String password, String roleId) {
         accountMapper.insertStaffAccount(account,password,roleId);
     }
+
+    @Override
+    public void updateByWorkId(String roleId, String workId) {
+        accountMapper.updateByWorkId(roleId,workId);
+    }
+
+    @Override
+    public void deleteByWorkId(String workId) {
+        accountMapper.deleteByWorkId(workId);
+    }
 }

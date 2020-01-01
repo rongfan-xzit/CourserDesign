@@ -7,4 +7,6 @@ public interface AccountService {
     Account findBy(String account,  String password);
     void insertAccount(String account,  String password);
     void insertStaffAccount( String account,  String password, String roleId);
+    void updateByWorkId(String roleId,String workId);
+    void deleteByWorkId(String id);
 }

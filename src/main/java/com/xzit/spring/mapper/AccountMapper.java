@@ -8,4 +8,6 @@ public interface AccountMapper {
     Account findBy(@Param("account") String account, @Param("password") String password);
     void insertAccount(@Param("account") String account, @Param("password") String password);
     void insertStaffAccount(@Param("account") String account, @Param("password") String password, @Param("roleId") String roleId);
+    void updateByWorkId(@Param("roleId") String roleId,@Param("workId") String workId);
+    void deleteByWorkId(String workId);
 }

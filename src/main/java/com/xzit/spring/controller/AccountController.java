@@ -25,6 +25,14 @@ public class AccountController {
     @Autowired
     private PermissionService permissionService;
 
+    /**
+     * 对用户登录的账号进行判断，如果错误，返回登陆页面
+     * 正确根据用户的不同的菜单权限跳到显示不同的菜单页面
+     * @param account  账号
+     * @param password 密码
+     * @param session
+     * @return
+     */
     @RequestMapping("/login")
     public String login(@RequestParam String account, @RequestParam String password, HttpSession session) {
         Account account1 = accountService.findBy(account, password);
@@ -36,6 +44,11 @@ public class AccountController {
         }
     }
 
+    /**
+     * 查询登陆的账号拥有的菜单权限的个数，并把权限进行封装，然后跳转到后台界面
+     * @param session
+     * @return
+     */
     @RequestMapping("/index")
     public String adminIndex(HttpSession session) {
         Account account = (Account) session.getAttribute("account");
@@ -62,6 +75,13 @@ public class AccountController {
         session.setAttribute("menuMaps", maps);
         return "index";//通过图解析器去完成地址的转发
     }
+
+    /**
+     * 实现注册的功能，注册成功跳转到登陆界面
+     * @param account 账号
+     * @param password 密码
+     * @return
+     */
     @RequestMapping("/register")
     public String register(@RequestParam String account,@RequestParam String password)
     {

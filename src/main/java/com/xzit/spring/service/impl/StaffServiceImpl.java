@@ -3,6 +3,7 @@ package com.xzit.spring.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xzit.spring.dto.StaffAccount;
 import com.xzit.spring.entity.Staff;
 import com.xzit.spring.mapper.StaffMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,25 @@ public class StaffServiceImpl implements com.xzit.spring.service.StaffService {
     @Override
     public void insertStaff(Staff staff) {
         staffMapper.insertStaff(staff);
+    }
+
+    @Override
+    public StaffAccount findByWorkId(String workId) {
+        return staffMapper.findByWorkId(workId);
+    }
+
+    @Override
+    public void updateByWorkId(Staff staff) {
+        staffMapper.updateByWorkId(staff);
+    }
+
+    @Override
+    public void deleteByWorkId(String workId) {
+        staffMapper.deleteByWorkId(workId);
+    }
+
+    @Override
+    public Staff findId(String workId) {
+        return staffMapper.findId(workId);
     }
 }

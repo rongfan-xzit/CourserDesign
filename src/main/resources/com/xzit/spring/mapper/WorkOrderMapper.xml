@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzit.spring.mapper.WorkOrderMapper">
+    <select id="findAll" resultType="com.xzit.spring.entity.WorkOrder">
+        select workorder.workorderid,workorder.question,workorder.questionDate
+          ,workorder.questionType,users.name from workorder,users where
+          workorder.userid=users.userId and workorder.workOrderStatus='0'
+    </select>
+</mapper>

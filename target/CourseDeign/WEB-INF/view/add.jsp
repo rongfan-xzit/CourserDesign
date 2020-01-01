@@ -33,7 +33,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">员工类型</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="type" lay-verify="required" autocomplete="off" class="layui-input" value="0">
+                    <input type="text" name="type" lay-verify="required" autocomplete="off" class="layui-input" value="0" readonly>
                 </div>
             </div>
             <div class="layui-inline">
@@ -145,8 +145,9 @@
                             // 关闭当前窗体
                             alert("提交成功");
                             progressClose();
-                            //数据表格reload
-                            //window.parent.location.reload();
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index); //再执行关闭
+                            window.parent.location.reload();
                         }
                     },
                     complete:function(XMLHttpRequest,result){

@@ -33,7 +33,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">员工类型</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="type" lay-verify="required" autocomplete="off" class="layui-input" value="0">
+                    <input type="text" name="type" lay-verify="required" autocomplete="off" class="layui-input" value="0" readonly>
                 </div>
             </div>
             <div class="layui-inline">

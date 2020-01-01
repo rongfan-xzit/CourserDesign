@@ -10,14 +10,19 @@
     <select id="findById" parameterType="String" resultType="com.xzit.spring.entity.Staff">
             select * from staff where name=#{name}
     </select>
-<!--    <update id="updateStaff">-->
-<!--        <set>-->
-<!--        <if test="record.collid != null" >-->
-<!--            collid = #{record.collid,jdbcType=INTEGER},-->
-<!--        </if>-->
-<!--        </set>-->
-<!--    </update>-->
+    <select id="findId" parameterType="String" resultType="com.xzit.spring.entity.Staff">
+            select * from staff where workId=#{workId}
+    </select>
+    <select id="findByWorkId" parameterType="String" resultType="com.xzit.spring.dto.StaffAccount">
+        select staff.*,accountinfo.roleId from staff,accountinfo where workId = #{workId} and staff.userInfoId=accountinfo.userInfoId
+    </select>
+    <update id="updateByWorkId" parameterType="com.xzit.spring.entity.Staff">
+        update staff set name=#{staff.name},phone=#{staff.phone},sex=#{staff.sex},age=#{staff.age} where workId=#{staff.workId}
+    </update>
     <insert id="insertStaff" parameterType="com.xzit.spring.entity.Staff">
         insert into staff values (#{staff.workId},#{staff.type},#{staff.name},#{staff.phone},#{staff.sex},#{staff.age},#{staff.userInfoId})
     </insert>
+    <delete id="deleteByWorkId" parameterType="String">
+        delete  from staff where workId=#{wordId}
+    </delete>
 </mapper>

@@ -21,6 +21,15 @@ public class Staff {
         this.userInfoId = userInfoId;
     }
 
+    public Staff(String workId, String type, String name, String phone, String sex, String age) {
+        this.workId = workId;
+        this.type = type;
+        this.name = name;
+        this.phone = phone;
+        this.sex = sex;
+        this.age = age;
+    }
+
     public Integer getUserInfoId() {
         return userInfoId;
     }

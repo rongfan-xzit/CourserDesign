@@ -74,9 +74,10 @@
                     });
                 },
                 toedit:function (winTitle,workId) {
+                    console.log(workId);
                     layer.open({
                         type: 2,
-                        title: '添加员工信息',
+                        title: '修改员工信息',
                         shadeClose: false,
                         shade: 0.5,
                         maxmin: true, //开启最大化最小化按钮
@@ -126,13 +127,26 @@
             table.on('tool(courselist)', function(obj){
                 var data = obj.data;
                 //console.log(obj)
+
                 if(obj.event === 'del'){
                     layer.confirm('真的删除行么', function(index){
-                        obj.del();
+                        var  id = data[0,"workId"] ;
                         layer.close(index);
+                        $.ajax({
+                            url:"${pageContext.request.contextPath}/staff/todelete/"+id,
+                            method:'DELETE',
+                            dataType:"json",
+                            success:function (msg) {
+                                if(msg.msgkey=="delSuccess") {
+                                    alert(msg.message);
+                                    table.reload('courselist');
+                                }
+                            }
+                        })
                     });
                 } else if(obj.event === 'edit'){
-                    active.toedit("修改员工信息",data.id);
+                    var  id1 = data[0,"workId"]
+                    active.toedit("徐州工程学院教学工作量核算系统-修改课程信息",id1);
                 }
             });
         });

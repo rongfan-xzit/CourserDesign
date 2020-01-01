@@ -74,8 +74,9 @@
     </div>
     <div class="layui-body" >
         <!-- 内容主体区域 -->
-        <div >
-        <iframe style="width: 1900px;height: 1000px"  id="myFrameId" name="myFrameName" scrolling="no" frameborder="0" ></iframe>
+        <div>
+        <iframe style="width: 1900px;height: 1000px"  id="myFrameId" name="myFrameName" scrolling="no" frameborder="0" src="${pageContext.request.contextPath}/welcome.jsp">
+        </iframe>
         </div>
     </div>
 

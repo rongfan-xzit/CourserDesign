@@ -16,11 +16,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class RoleController {
     @Autowired
     private RoleService roleService;
+
+    /**
+     * 跳转到角色列表界面
+     * @return
+     */
     @RequestMapping("/jump")
     public String jump()
     {
         return "Rolelist";
     }
+
+    /**
+     * 分页显示角色查询结果
+     * @param page
+     * @param rows
+     * @param role
+     * @return
+     */
     @RequestMapping("findAll")
     @ResponseBody
     public Datagrid<Role> findAll(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
