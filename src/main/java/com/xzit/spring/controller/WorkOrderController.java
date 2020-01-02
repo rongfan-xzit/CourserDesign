@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -132,13 +133,13 @@ public class WorkOrderController {
         /**
          *填写工单接口
          */
-        @GetMapping("/addWorkOrder")
+        @RequestMapping("/addWorkOrder")
         @ResponseBody
-        public AjaxOutput addWorkOrder(@Validated WorkOrder1 workOrder1) throws ParseException {
+        public AjaxOutput addWorkOrder(@Valid @RequestBody WorkOrder1 workOrder1) throws ParseException {
             AjaxOutput ajaxOutput = new AjaxOutput();
             //通过订单编号查询是否存在此订单
             Order order = orderService.selectOrderrInf(workOrder1.getOrderId());
-            //存在此订单情况
+            //存在此订单情况(保修卡编号是否存在问题未考虑)
             if(null != order){
                 WorkOrder1 workOrder2 =  workOrderService.selectByWorkorderid(workOrder1.getWorkorderid());
                 if(null == workOrder2){
@@ -176,20 +177,41 @@ public class WorkOrderController {
             return "selectWorkOrder";
         }
 
-//    @RequestMapping("staffInfo/{id}")
-//    @ResponseBody
-//    public Datagrid<Staff> findById(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
-//                          @RequestParam(value = "limit", defaultValue = "10", required = false) int rows,
-//                          Staff staff,@PathVariable String id)
-//    {
-//        Datagrid<Staff> staffDatagrid = new Datagrid<>();
-//        PageInfo<Staff> staffPageInfo = staffService.findById(staff,page,rows,id);
-//        staffDatagrid.setCode(0);
-//        staffDatagrid.setCount(staffPageInfo.getTotal());
-//        staffDatagrid.setData(staffPageInfo.getList());
-//        staffDatagrid.setMsg("员工查询信息结果");
-//        return staffDatagrid;
-//    }
+    /**
+     *确认工单信息查询接口
+     */
+    @RequestMapping("/yesWorkOrderSelect/{orderId}")
+    @ResponseBody
+    public AjaxOutput yesWorkOrderSelect( @PathVariable String orderId) {
+        AjaxOutput ajaxOutput = new AjaxOutput();
+        WorkOrder1 workOrder1 = workOrderService.selectByOrderId(orderId);
+        //订单号存在
+        if(null != workOrder1){
+            ajaxOutput.setData(workOrder1);
+        }else {
+            ajaxOutput.setMsgkey("vailderror");
+            ajaxOutput.setMessage("没有此订单号的工单信息");
+        }
+        return ajaxOutput;
+    }
+
+    /**
+     *确认工单信息接口
+     */
+    @RequestMapping("/yesWorkOrder")
+    @ResponseBody
+    public AjaxOutput yesWorkOrder( @PathVariable String orderId) {
+        AjaxOutput ajaxOutput = new AjaxOutput();
+        WorkOrder1 workOrder1 = workOrderService.selectByOrderId(orderId);
+        //订单号存在
+        if(null != workOrder1){
+            ajaxOutput.setData(workOrder1);
+        }else {
+            ajaxOutput.setMsgkey("vailderror");
+            ajaxOutput.setMessage("没有此订单号的工单信息");
+        }
+        return ajaxOutput;
+    }
 //    @RequestMapping("toadd")
 //    public String toadd()
 //    {

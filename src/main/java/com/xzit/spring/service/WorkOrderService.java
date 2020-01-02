@@ -18,4 +18,6 @@ public interface WorkOrderService {
     //    List<Staff> findAll();
 //    PageInfo<Staff> pageSelect(Staff staff, Integer pageNo, Integer pageSize);
     WorkOrder1 selectByWorkorderid(String workorderid);
+
+    WorkOrder1 selectByOrderId(String orderId);
 }

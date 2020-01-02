@@ -14,4 +14,6 @@ public interface WorkOrderMapper {
     int insertWorkOrderInf(WorkOrder1 workOrder);
     /*List<Staff> findAll();*/
     WorkOrder1 selectByWorkorderid(String workorderid);
+
+    WorkOrder1 selectByOrderId(String orderId);
 }

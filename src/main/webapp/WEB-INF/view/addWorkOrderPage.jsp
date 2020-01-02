@@ -33,7 +33,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">保修卡编号</label>
             <div class="layui-input-inline">
-                <input type="text" name="kcm" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.aftersalecardid}">
+                <input type="text" name="aftersalecardid" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.aftersalecardid}">
             </div>
         </div>
     </div>
@@ -63,8 +63,8 @@
                     <option value="退货"${courseInfo.kclx=="退货"?"selected":""}>退货</option>
                     <option value="换货"${courseInfo.kclx=="换货"?"selected":""}>换货</option>
                     <option value="维修" ${courseInfo.kclx=="维修"?"selected":""}>维修</option>
-                    <option value="服务预约"${courseInfo.kclx=="专业选修课"?"selected":""}>服务预约</option>
-                    <option value="补发商品"${courseInfo.kclx=="集中实践课"?"selected":""}>补发商品</option>
+                    <option value="服务预约"${courseInfo.kclx=="服务预约"?"selected":""}>服务预约</option>
+                    <option value="补发商品"${courseInfo.kclx=="补发商品"?"selected":""}>补发商品</option>
                 </select>
             </div>
         </div>
@@ -142,7 +142,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">预约处理时间</label>
                     <div class="layui-input-inline">
-                        <input id="appointment" name="strAppointment" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.strAppointment}">
+                        <input id="appointment" name="appointment" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.appointment}">
                     </div>
                 </div>
         </div>
@@ -161,9 +161,9 @@
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit="" lay-filter="savebtn">保存</button>
+<%--            <button class="layui-btn" lay-submit="" lay-filter="savebtn">保存</button>--%>
             <button class="layui-btn" lay-submit="" lay-filter="ajaxsavebtn">保存(ajax)</button>
-            <button class="layui-btn layui-btn-primary btn-close">关闭</button>
+<%--            <button class="layui-btn layui-btn-primary btn-close">关闭</button>--%>
         </div>
     </div>
 
@@ -197,13 +197,13 @@
         });
 
         //监听提交
-        form.on('submit(savebtn)', function(data) {
-            var form = document.getElementById('courseform');
-            console.log(form+"0---------------");
-            form.action = "${pageContext.request.contextPath}/workOrder/addWorkOrder";
-            form.method = "post";
-            form.submit();
-        });
+        <%--form.on('submit(savebtn)', function(data) {--%>
+        <%--    var form = document.getElementById('courseform');--%>
+        <%--    console.log(form+"0---------------");--%>
+        <%--    form.action = "${pageContext.request.contextPath}/workOrder/addWorkOrder";--%>
+        <%--    form.method = "post";--%>
+        <%--    form.submit();--%>
+        <%--});--%>
 
         //监听提交
         form.on('submit(ajaxsavebtn)', function(data) {
@@ -212,8 +212,8 @@
             $(".ajaxerrordiv").html();
             //发起ajax请求
             $.ajax({
-                url:"${pageContext.request.contextPath}/courseinfo/ajaxvalid",
-                type:"post",
+                url:"${pageContext.request.contextPath}/workOrder/addWorkOrder",
+                type:"json",
                 data:json,
                 contentType:"application/json",
                 beforeSend:function(XMLHttpRequest){
@@ -225,21 +225,9 @@
                     //请求发送成功后
                     var msgkey =result.msgkey;
                     var message =result.message;
-                    if(msgkey=="validerror"){
-                        //验证失败
-                        //对json数组进行遍历
-                        var errorMsg="";
-                        $.each(result.data,function (index,value) {
-                            errorMsg+= value.defaultMessage;
-                        });
-                        $(".ajaxerrordiv").html(errorMsg);
-                    }else{
-                        //成功后
-                        // 关闭当前窗体
-                        alert("提交成功");
-                        progressClose();
-                        //数据表格reload
-                        //window.parent.location.reload();
+                    if(msgkey=="vailderror"){
+                        alert(message);
+                        $('#courseform')[0].reset();
                     }
                 },
                 complete:function(XMLHttpRequest,textStatus){
@@ -253,12 +241,12 @@
             return false;
         });
 
-        $(".btn-close").click(function(){
-            //关闭父窗口
-            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
-            parent.layer.close(index); //再执行关闭
-        });
-    });
+    //     $(".btn-close").click(function(){
+    //         //关闭父窗口
+    //         var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+    //         parent.layer.close(index); //再执行关闭
+    //     });
+     });
 </script>
 
 </body>

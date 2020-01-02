@@ -29,6 +29,10 @@
     <select id="selectByWorkorderid" parameterType="String" resultType="com.xzit.spring.entity.WorkOrder1">
         select * from ice_box.workorder where workorderid=#{workorderid}
     </select>
+
+    <select id="selectByOrderId" parameterType="String" resultType="com.xzit.spring.entity.WorkOrder1">
+        select * from ice_box.workorder where orderId=#{orderId}
+    </select>
     <!--    <select id="findById" parameterType="String" resultType="com.xzit.spring.entity.Staff">-->
     <!--            select * from staff where wordId=#{workId}-->
     <!--    </select>-->

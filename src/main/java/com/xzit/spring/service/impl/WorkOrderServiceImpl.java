@@ -60,6 +60,12 @@ public class WorkOrderServiceImpl implements WorkOrderService {
         return workOrderMapper.selectByWorkorderid(workorderid);
     }
 
+    @Override
+    public WorkOrder1 selectByOrderId(String orderId) {
+        return workOrderMapper.selectByOrderId(orderId);
+    }
+
+
    /* @Override
     public List<Staff> findAll() {
         return staffMapper.findAll();
