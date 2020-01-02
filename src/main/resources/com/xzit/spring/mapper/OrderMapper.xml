@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzit.spring.mapper.OrderMapper">
+   <select id="selectOrderrInf" parameterType="String" resultType="com.xzit.spring.entity.Order">
+        select * from ice_box.order where orderid=#{orderId}
+    </select>
+<!--    <select id="findAll" resultType="com.xzit.spring.entity.Staff">-->
+<!--        select * from staff-->
+<!--    </select>-->
+<!--    <select id="findById" parameterType="String" resultType="com.xzit.spring.entity.Staff">-->
+<!--            select * from staff where wordId=#{workId}-->
+<!--    </select>-->
+<!--    <update id="updateStaff">-->
+<!--        <set>-->
+<!--        <if test="record.collid != null" >-->
+<!--            collid = #{record.collid,jdbcType=INTEGER},-->
+<!--        </if>-->
+<!--        </set>-->
+<!--    </update>-->
+</mapper>

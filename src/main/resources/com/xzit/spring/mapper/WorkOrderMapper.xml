@@ -12,4 +12,31 @@
     <insert id="insertBywork" parameterType="String">
         insert into workorder(workorderid,image) values (#{workOrderId},#{image})
     </insert>
+
+    <insert id="insertWorkOrderInf" parameterType="com.xzit.spring.entity.WorkOrder1">
+    insert into ice_box.workorder (workorderid, question,
+      staffid, aftersalecardid,questionType,questionDate,
+      paymethod,payment, status,
+      userid , orderId, appointment,
+      checkResult, consumables, consumableId,
+      imagePath, address,phone)
+    values (#{workorderid}, #{question}, #{staffid},
+     #{aftersalecardid}, #{questionType}, #{questionDate}, #{paymethod},
+     #{payment}, #{status}, #{userid}, #{orderId},
+     #{appointment}, #{checkResult}, #{consumables}, #{consumableId},
+      #{imagePath}, #{address}, #{phone})
+  </insert>
+    <select id="selectByWorkorderid" parameterType="String" resultType="com.xzit.spring.entity.WorkOrder1">
+        select * from ice_box.workorder where workorderid=#{workorderid}
+    </select>
+    <!--    <select id="findById" parameterType="String" resultType="com.xzit.spring.entity.Staff">-->
+    <!--            select * from staff where wordId=#{workId}-->
+    <!--    </select>-->
+    <!--    <update id="updateStaff">-->
+    <!--        <set>-->
+    <!--        <if test="record.collid != null" >-->
+    <!--            collid = #{record.collid,jdbcType=INTEGER},-->
+    <!--        </if>-->
+    <!--        </set>-->
+    <!--    </update>-->
 </mapper>

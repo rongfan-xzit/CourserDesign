@@ -3,6 +3,7 @@ package com.xzit.spring.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xzit.spring.entity.WorkOrder;
+import com.xzit.spring.entity.WorkOrder1;
 import com.xzit.spring.mapper.WorkOrderMapper;
 import com.xzit.spring.service.WorkOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +47,36 @@ public class WorkOrderServiceImpl implements WorkOrderService {
     public List<WorkOrder> findByWorkId(String workId) {
         return workOrderMapper.findByWorkId(workId);
     }
+
+
+
+    @Override
+    public int insertWorkOrderInf(WorkOrder1 workOrder) {
+        return workOrderMapper.insertWorkOrderInf(workOrder);
+    }
+
+    @Override
+    public WorkOrder1 selectByWorkorderid(String workorderid) {
+        return workOrderMapper.selectByWorkorderid(workorderid);
+    }
+
+   /* @Override
+    public List<Staff> findAll() {
+        return staffMapper.findAll();
+    }
+
+    @Override
+    public PageInfo<Staff> pageSelect(Staff staff, Integer pageNo, Integer pageSize) {
+        pageNo = pageNo ==null?1:pageNo;
+        pageSize = pageSize==null?10:pageSize;
+        PageHelper.startPage(pageNo,pageSize);
+        List<Staff> staffAll = staffMapper.findAll();
+        PageInfo<Staff> page = new PageInfo<>(staffAll);
+        return page;
+    }
+
+    @Override
+    public Staff findById(String workId) {
+        return staffMapper.findById(workId);
+    }*/
 }
