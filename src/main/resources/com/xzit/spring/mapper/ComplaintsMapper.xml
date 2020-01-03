@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzit.spring.mapper.ComplaintsMapper">
+    <insert id="insertComplaints" parameterType="com.xzit.spring.entity.Complaints">
+    insert into ice_box.complaints (complaintsid, workorderid,
+      userId, content,`time`,images)
+    values (#{complaintsid}, #{workorderid}, #{userId},
+     #{content}, #{time}, #{images})
+  </insert>
+
+    <select id="selectComplaintsByWorkorderid" parameterType="String" resultType="com.xzit.spring.entity.Complaints">
+         select
+ ice_box.complaints.complaintsid,
+ ice_box.complaints.workorderid,
+ ice_box.user.userId,
+ ice_box.user.name,
+ ice_box.user.phone
+ from
+ ice_box.complaints,
+ ice_box.user
+ where
+ice_box.complaints.userid=ice_box.user.userId
+          and ice_box.complaints.workorderid= #{workorderid}
+    </select>
+<!--    <select id="findByWorkId" parameterType="String" resultType="com.xzit.spring.entity.WorkOrder">-->
+<!--        select workorder.*,users.name from workorder,users where workorderid=#{workId} and workorder.userid=users.userId-->
+<!--    </select>-->
+<!--    <insert id="insertBywork" parameterType="String">-->
+<!--        insert into workorder(workorderid,image) values (#{workOrderId},#{image})-->
+<!--    </insert>-->
+
+
+<!--    <select id="selectByWorkorderid" parameterType="String" resultType="com.xzit.spring.entity.WorkOrder1">-->
+<!--        select * from ice_box.workorder where workorderid=#{workorderid}-->
+<!--    </select>-->
+
+</mapper>

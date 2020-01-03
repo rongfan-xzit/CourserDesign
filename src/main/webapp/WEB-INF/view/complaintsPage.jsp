@@ -22,29 +22,56 @@
     <legend>投诉工单</legend>
 </fieldset>
 
+<!--数据查询-->
+<div class="layui-form-item">
+    <div class="layui-inline">
+        <label class="layui-form-label">工单编号</label>
+        <div class="layui-input-inline">
+            <input type="text" autocomplete="off" placeholder="请输入工单编号"  class="layui-input" id="inputWorkorderid" value="">
+        </div>
+    </div>
+    <a class="layui-btn mgl-20" data-type="reload" id="queryBtn">查询</a>
+</div>
+
 <form class="layui-form" action="" id="courseform">
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">工单编号</label>
             <div class="layui-input-inline">
-                <input type="text" name="workorderid" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.workorderid}">
+                <input type="text" id="workorderid" name="workorderid"  disabled="disabled"  lay-verify="required" autocomplete="off" class="layui-input" value="">
             </div>
         </div>
     </div>
-    <div class="layui-form-item">
 
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">投诉编号</label>
+            <div class="layui-input-inline">
+                <input type="text" id="complaintsid" name="complaintsid"  lay-verify="required" autocomplete="off" class="layui-input" value="${complaints.complaintsid}">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">上传投诉图片</label>
+            <div class="layui-input-inline">
+                <input type="file" name="images" id="images"  autocomplete="off" class="layui-input" value="1" value="${complaints.images}">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
         <div class="layui-form-item">
             <div class="layui-form-item">
                 <div class="layui-inline">
                     <label class="layui-form-label">投诉内容</label>
                     <div class="layui-input-inline">
-                        <textarea  type="text" name="question" rows="5" lay-verify="required|number" autocomplete="off" class="layui-input" value="1">${workOrder.question}</textarea>
+                        <textarea  type="text" name="content" id="content" rows="5"  autocomplete="off" class="layui-input" value="1">${complaints.content}</textarea>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
 
         <div class="layui-form-item">
@@ -84,23 +111,22 @@
         });
 
         //监听提交
-        form.on('submit(savebtn)', function(data) {
-            var form = document.getElementById('courseform');
-            console.log(form+"0---------------");
-            form.action = "${pageContext.request.contextPath}/workOrder/addWorkOrder";
-            form.method = "post";
-            form.submit();
-        });
+        <%--form.on('submit(savebtn)', function(data) {--%>
+        <%--    var form = document.getElementById('courseform');--%>
+        <%--    console.log(form+"0---------------");--%>
+        <%--    form.action = "${pageContext.request.contextPath}/workOrder/addWorkOrder";--%>
+        <%--    form.method = "post";--%>
+        <%--    form.submit();--%>
+        <%--});--%>
 
         //监听提交
-        form.on('submit(ajaxsavebtn)', function(data) {
+        form.on('submit(savebtn)', function(data) {
             //layui把表单中的数据封装到data
             var json = JSON.stringify(data.field);
-            $(".ajaxerrordiv").html();
             //发起ajax请求
             $.ajax({
-                url:"${pageContext.request.contextPath}/courseinfo/ajaxvalid",
-                type:"post",
+                url:"${pageContext.request.contextPath}/complaints/conComplaints",
+                type:"json",
                 data:json,
                 contentType:"application/json",
                 beforeSend:function(XMLHttpRequest){
@@ -112,21 +138,9 @@
                     //请求发送成功后
                     var msgkey =result.msgkey;
                     var message =result.message;
-                    if(msgkey=="validerror"){
-                        //验证失败
-                        //对json数组进行遍历
-                        var errorMsg="";
-                        $.each(result.data,function (index,value) {
-                            errorMsg+= value.defaultMessage;
-                        });
-                        $(".ajaxerrordiv").html(errorMsg);
-                    }else{
-                        //成功后
-                        // 关闭当前窗体
-                        alert("提交成功");
-                        progressClose();
-                        //数据表格reload
-                        //window.parent.location.reload();
+                    if(msgkey=="vailderror"){
+                        alert(message);
+                        $('#courseform')[0].reset();
                     }
                 },
                 complete:function(XMLHttpRequest,textStatus){
@@ -140,11 +154,32 @@
             return false;
         });
 
-        $(".btn-close").click(function(){
-            //关闭父窗口
-            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
-            parent.layer.close(index); //再执行关闭
+        //按钮查询
+        $('#queryBtn').on('click', function(){
+            console.log($('#inputWorkorderid').val().toString());
+            $.ajax({
+                type: "post",
+                url:'${pageContext.request.contextPath}/complaints/selectWorkorderid/'+$('#inputWorkorderid').val().toString(),
+                contentType: "application/json;charset=utf-8",
+                success:function(result){
+                    //请求发送成功后
+                    var msgkey =result.msgkey;
+                    var message =result.message;
+                    $("#workorderid").val(result.data.workorderid);
+                    if(msgkey=="vailderror"){
+                        alert(message);
+                    }
+                },
+            });
         });
+
+
+
+        // $(".btn-close").click(function(){
+        //     //关闭父窗口
+        //     var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+        //     parent.layer.close(index); //再执行关闭
+        // });
     });
 </script>
 
