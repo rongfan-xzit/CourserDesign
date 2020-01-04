@@ -14,5 +14,11 @@ public interface ComplaintsService {
 
     PageInfo<Complaints> selectComplaintsByWorkorderid(Integer pageNo, Integer pageSize, String workorderid);
 
+    PageInfo<Complaints> selectComplaints(Integer pageNo, Integer pageSize);
+
     void insertComplaints(Complaints complaints);
+
+    void deleteByComplaintsid(String complaintsid);
+
+    void updateByComplaintsid(Complaints complaints,String complaintsid);
 }

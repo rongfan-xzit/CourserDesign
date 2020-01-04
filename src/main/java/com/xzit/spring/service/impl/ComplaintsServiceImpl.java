@@ -39,6 +39,24 @@ public class ComplaintsServiceImpl implements ComplaintsService {
         PageInfo<Complaints> page = new PageInfo<>(staffAll);
         return page;
     }
-//
 
+    @Override
+    public PageInfo<Complaints> selectComplaints(Integer pageNo, Integer pageSize) {
+        pageNo = pageNo ==null?1:pageNo;
+        pageSize = pageSize==null?10:pageSize;
+        PageHelper.startPage(pageNo,pageSize);
+        List<Complaints> staffAll = complaintsMapper.selectComplaints();
+        PageInfo<Complaints> page = new PageInfo<>(staffAll);
+        return page;
+    }
+
+    @Override
+    public void deleteByComplaintsid(String complaintsid) {
+        complaintsMapper.deleteByComplaintsid(complaintsid);
+    }
+
+    @Override
+    public void updateByComplaintsid(Complaints complaints,String complaintsid) {
+        complaintsMapper.updateByComplaintsid(complaints,complaintsid);
+    }
 }

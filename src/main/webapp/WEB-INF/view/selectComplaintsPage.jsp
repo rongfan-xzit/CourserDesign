@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>投诉工单信息列表</title>
+    <title>投诉工单列表</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,14 +15,10 @@
 <body>
 <!--数据查询-->
 <form class="layui-form">
-    <div class="layui-inline">
-        <label class="layui-form-label">工单编号</label>
-        <div class="layui-input-inline">
-            <input type="text" autocomplete="off" placeholder="请输入工单编号"  class="layui-input" id="inputWorkorderid" value="">
-        </div>
+    <div class="layui-input-inline">
+        <input type="text" autocomplete="off" placeholder="请输入工单编号"  class="layui-input" id="kcm" value="">
     </div>
     <a class="layui-btn mgl-20" data-type="reload" id="queryBtn">查询</a>
-<%--    <a class="layui-btn mgl-20 layui-btn-normal" data-type="add" id="addBtn">添加</a>--%>
 </form>
 <!--用户数据表格-->
 <table class="layui-hide" id="courselist" lay-filter="courselist"></table>
@@ -37,11 +33,11 @@
 <script>
     layui.use('table', function(){
         var table = layui.table;
-console.log(table+"-------");
+
         table.render({
             elem: '#courselist'
             ,url:'${pageContext.request.contextPath}/complaints/find'
-            ,title: '投诉工单信息列表'
+            ,title: '投诉的工单信息'
             ,cols: [[
                 {type: 'checkbox', fixed: 'left'}
                 ,{field:'complaintsid', title:'投诉编号', width:100}
@@ -49,7 +45,8 @@ console.log(table+"-------");
                 ,{field:'userId', title:'用户编号', width:120,hidden:true}
                 ,{field:'name', title:'用户账号', width:120}
                 ,{field:'phone', title:'用户手机号', width:160}
-                ,{field:'images', title:'图片', width:120}
+                ,{field:'content', title:'投诉内容', width:120}
+                ,{field:'time', title:'投诉时间', width:120}
                 ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
             ]]
             ,page: true
@@ -76,16 +73,16 @@ console.log(table+"-------");
                     }
                 });
             },
-            toedit:function (winTitle,workId) {
-                console.log(workId);
+            toedit:function (winTitle,complaintsid) {
+                console.log(complaintsid+"------------11");
                 layer.open({
                     type: 2,
-                    title: '修改员工信息',
+                    title: '修改投诉的工单信息',
                     shadeClose: false,
                     shade: 0.5,
                     maxmin: true, //开启最大化最小化按钮
                     area: ['1000px', '600px'],
-                    content: '${pageContext.request.contextPath}/staff/toedit/'+workId
+                    content: '${pageContext.request.contextPath}/complaints/updateComplaints/'+complaintsid
                 });
             },
             toedit1:function (winTitle,workId) {
@@ -105,8 +102,8 @@ console.log(table+"-------");
             //执行重载
             table.reload('courselist', {
                 elem: '#courselist'
-                ,url:'${pageContext.request.contextPath}/complaints/selectComplaints/'+$('#inputWorkorderid').val().toString()
-                ,title: '投诉工单信息列表'
+                ,url:'${pageContext.request.contextPath}/complaints/selectComplaints/'+$('#kcm').val().toString()
+                ,title: '投诉的工单信息'
                 ,method:'GET'
                 ,cols:  [[
                     {type: 'checkbox', fixed: 'left'}
@@ -115,7 +112,8 @@ console.log(table+"-------");
                     ,{field:'userId', title:'用户编号', width:120,hidden:true}
                     ,{field:'name', title:'用户账号', width:120}
                     ,{field:'phone', title:'用户手机号', width:160}
-                    ,{field:'images', title:'图片', width:120}
+                    ,{field:'content', title:'投诉内容', width:120}
+                    ,{field:'time', title:'投诉时间', width:120}
                     ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
                 ]]
                 ,page: true
@@ -129,14 +127,12 @@ console.log(table+"-------");
         //监听行工具事件
         table.on('tool(courselist)', function(obj){
             var data = obj.data;
-            //console.log(obj)
-
             if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
-                    var  id = data[0,"workId"] ;
+                    var  id = data[0,"complaintsid"] ;
                     layer.close(index);
                     $.ajax({
-                        url:"${pageContext.request.contextPath}/staff/todelete/"+id,
+                        url:"${pageContext.request.contextPath}/complaints/deleteComplaints/"+id,
                         method:'DELETE',
                         dataType:"json",
                         success:function (msg) {
@@ -148,7 +144,7 @@ console.log(table+"-------");
                     })
                 });
             } else if(obj.event === 'edit'){
-                var  id1 = data[0,"workId"]
+                var  id1 = data[0,"complaintsid"]
                 active.toedit("徐州工程学院教学工作量核算系统-修改课程信息",id1);
             }
         });

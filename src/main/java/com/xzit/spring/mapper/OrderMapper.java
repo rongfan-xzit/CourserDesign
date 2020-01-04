@@ -1,13 +1,19 @@
 package com.xzit.spring.mapper;
 
+import com.xzit.spring.entity.Complaints;
 import com.xzit.spring.entity.Order;
-import com.xzit.spring.entity.Staff;
+import com.xzit.spring.entity.WorkOrder;
+import com.xzit.spring.entity.WorkOrder1;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface OrderMapper {
-    Order selectOrderrInf(@Param("orderId") String orderId);
-//    List<Staff> findAll();
-//    Staff findById(String workId);
+
+    List<Order> selectOrder();
+
+    List<Order> selectOrderByOrderId(String OrderId);
+
+
+    Order selectOrderrInf(String orderId);
 }

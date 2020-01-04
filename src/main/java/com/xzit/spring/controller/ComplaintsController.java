@@ -3,6 +3,7 @@ package com.xzit.spring.controller;
 import com.github.pagehelper.PageInfo;
 import com.xzit.spring.dto.AjaxOutput;
 import com.xzit.spring.dto.Datagrid;
+import com.xzit.spring.dto.StaffDto;
 import com.xzit.spring.entity.*;
 import com.xzit.spring.service.ComplaintsService;
 import com.xzit.spring.service.OrderService;
@@ -96,39 +97,55 @@ public class ComplaintsController {
      * @return
      */
     @GetMapping("/selectComplaints/{workorderid}")
+    @ResponseBody
     public Datagrid<Complaints> selectComplaints(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
                                        @RequestParam(value = "limit", defaultValue = "10", required = false) int rows,
                                        @PathVariable String workorderid) {
-        Datagrid<Complaints> complaintsDatagrid = new Datagrid<>();
+        Datagrid<Complaints> staffDatagrid = new Datagrid<>();
         //查询是否存在工单编号
         WorkOrder1 workOrder1 = workOrderService.selectByWorkorderid(workorderid);
         if(null != workOrder1){
             PageInfo<Complaints> staffPageInfo = complaintsService.selectComplaintsByWorkorderid(page,rows,workorderid);
-            complaintsDatagrid.setCode(0);
-            complaintsDatagrid.setCount(staffPageInfo.getTotal());
-            complaintsDatagrid.setData(staffPageInfo.getList());
-            complaintsDatagrid.setMsg("已投诉工单信息列表");
+            staffDatagrid.setCode(0);
+            staffDatagrid.setCount(staffPageInfo.getTotal());
+            staffDatagrid.setData(staffPageInfo.getList());
+            staffDatagrid.setMsg("已投诉工单信息列表");
         }else {
-            complaintsDatagrid.setMsg("此工单编号不存在，请重新填写！");
+            staffDatagrid.setMsg("此工单编号不存在，请重新填写！");
         }
 
-        return complaintsDatagrid;
+        return staffDatagrid;
     }
     /**
      * 查看已投诉工单页面接口
      * @return
      */
     @GetMapping("/find")
+    @ResponseBody
     public Datagrid<Complaints> find(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
-                                                 @RequestParam(value = "limit", defaultValue = "10", required = false) int rows,
-                                     Complaints complaints) {
-        Datagrid<Complaints> complaintsDatagrid = new Datagrid<>();
+                                                 @RequestParam(value = "limit", defaultValue = "10", required = false) int rows) {
+        Datagrid<Complaints> staffDatagrid = new Datagrid<>();
         //查询是否存在工单编号
-            PageInfo<Complaints> staffPageInfo = complaintsService.selectComplaintsByWorkorderid(page,rows,"2");
-            complaintsDatagrid.setCode(0);
-            complaintsDatagrid.setCount(staffPageInfo.getTotal());
-            complaintsDatagrid.setData(staffPageInfo.getList());
-            complaintsDatagrid.setMsg("已投诉工单信息列表");
-        return complaintsDatagrid;
+        PageInfo<Complaints> staffPageInfo = complaintsService.selectComplaints(page,rows);
+        staffDatagrid.setCode(0);
+        staffDatagrid.setCount(staffPageInfo.getTotal());
+        staffDatagrid.setData(staffPageInfo.getList());
+        staffDatagrid.setMsg("已投诉工单信息列表");
+        return staffDatagrid;
     }
+
+    /**
+     * 用于根据投诉编号删除投诉信息
+     */
+    @RequestMapping("/deleteComplaints/{complaintsid}")
+    @ResponseBody
+    public AjaxOutput  deleteComplaints(@PathVariable String complaintsid)
+    {
+        complaintsService.deleteByComplaintsid(complaintsid);
+        AjaxOutput ajaxOutput = new AjaxOutput();
+        ajaxOutput.setMsgkey("delSuccess");
+        ajaxOutput.setMessage("删除成功");
+        return ajaxOutput;
+    }
+
 }

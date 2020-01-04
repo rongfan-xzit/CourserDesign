@@ -29,6 +29,8 @@ public class Order {
     //总金额
     private Double money;
 
+    //订单状态 已处理 未处理
+    private String status;
 
     public String getOrderId() {
         return OrderId;
@@ -76,5 +78,13 @@ public class Order {
 
     public void setMoney(Double money) {
         this.money = money;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -1,15 +1,20 @@
 package com.xzit.spring.service;
 
 import com.github.pagehelper.PageInfo;
+import com.xzit.spring.entity.Complaints;
 import com.xzit.spring.entity.Order;
-import com.xzit.spring.entity.Staff;
-import org.apache.ibatis.annotations.Param;
+import com.xzit.spring.entity.WorkOrder;
+import com.xzit.spring.entity.WorkOrder1;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface OrderService {
-    Order selectOrderrInf(@Param("orderId") String orderId);
-//    List<Staff> findAll();
-//    PageInfo<Staff> pageSelect(Staff staff, Integer pageNo, Integer pageSize);
-//    Staff findById(String workId);
+
+    PageInfo<Order> selectOrder(Integer pageNo, Integer pageSize);
+
+    PageInfo<Order> selectOrderByOrderId(Integer pageNo, Integer pageSize,String OrderId);
+
+    Order selectOrderrInf(String orderId);
 }

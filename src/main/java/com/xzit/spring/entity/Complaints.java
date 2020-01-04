@@ -21,12 +21,12 @@ public class Complaints {
     private String name;
     //用户手机号
     private String phone;
-//    //投诉内容
-//    private String content;
-//    //投诉时间
-//    private Date time;
-    //图片
-    private String images;
+    //投诉内容
+    private String content;
+    //投诉时间
+    private Date time;
+//    //图片
+//    private String images;
 
 
 
@@ -55,29 +55,29 @@ public class Complaints {
         this.userId = userId;
     }
 
-//    public String getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(String content) {
-//        this.content = content;
-//    }
-//
-//    public Date getTime() {
-//        return time;
-//    }
-//
-//    public void setTime(Date time) {
-//        this.time = time;
-//    }
-
-    public String getImages() {
-        return images;
+    public String getContent() {
+        return content;
     }
 
-    public void setImages(String images) {
-        this.images = images;
+    public void setContent(String content) {
+        this.content = content;
     }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+//    public String getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(String images) {
+//        this.images = images;
+//    }
 
     public String getName() {
         return name;

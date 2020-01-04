@@ -10,15 +10,14 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ComplaintsMapper {
-//    List<WorkOrder> findAll();
-//    void insertBywork(@Param("workOrderId") String workOrderId, @Param("image") String image);
-//    List<WorkOrder> findByWorkId(String workId);
-//
-//    int insertWorkOrderInf(WorkOrder1 workOrder);
-//    /*List<Staff> findAll();*/
-//    WorkOrder1 selectByWorkorderid(String workorderid);
 
-    List<Complaints> selectComplaintsByWorkorderid(@Param("workorderid") String workorderid);
+    List<Complaints> selectComplaintsByWorkorderid(String workorderid);
+
+    List<Complaints> selectComplaints();
 
     void insertComplaints(Complaints complaints);
+
+    void deleteByComplaintsid(String complaintsid);
+
+    void updateByComplaintsid(@Param("complaints") Complaints complaints,@Param("complaintsid")String complaintsid);
 }
