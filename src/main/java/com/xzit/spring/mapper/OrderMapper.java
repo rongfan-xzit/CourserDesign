@@ -14,6 +14,9 @@ public interface OrderMapper {
 
     List<Order> selectOrderByOrderId(String OrderId);
 
-
     Order selectOrderrInf(String orderId);
+
+    void deleteByOrderId(String OrderId);
+
+    int updateByOrderId(String OrderId);
 }

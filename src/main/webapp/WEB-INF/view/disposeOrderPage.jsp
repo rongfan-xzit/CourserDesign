@@ -24,8 +24,12 @@
     <table class="layui-hide" id="courselist" lay-filter="courselist"></table>
 
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="chuli">处理</a>
+        {{# if(d.status =='未处理'){ }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs"  lay-event="chuli">处理</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        {{# }if(d.status =='已处理') { }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        {{# } }}
     </script>
 
     <script src="${pageContext.request.contextPath}/plugins/layui/layui.js"></script>
@@ -33,6 +37,7 @@
     <script>
         layui.use('table', function(){
             var table = layui.table;
+            // console.log(table.row.status+"--66666666");
 
             table.render({
                 elem: '#courselist'
@@ -40,7 +45,7 @@
                 ,title: '订单信息表'
                 ,cols: [[
                     {type: 'checkbox', fixed: 'left'}
-                    ,{field:'OrderId', title:'订单编号', width:100}
+                    ,{field:'orderId', title:'订单编号', width:100}
                     ,{field:'userId', title:'用户编号', width:120}
                     ,{field:'goodsId', title:'商品编号', width:120}
                     ,{field:'time', title:'购买日期', width:120}
@@ -73,8 +78,8 @@
                         }
                     });
                 },
-                toedit:function (winTitle,workId) {
-                    console.log(workId);
+                toedit:function (winTitle,orderId) {
+                    console.log(orderId);
                     layer.open({
                         type: 2,
                         title: '修改员工信息',
@@ -82,10 +87,10 @@
                         shade: 0.5,
                         maxmin: true, //开启最大化最小化按钮
                         area: ['1000px', '600px'],
-                        content: '${pageContext.request.contextPath}/staff/toedit/'+workId
+                        content: '${pageContext.request.contextPath}/staff/toedit/'+orderId
                     });
                 },
-                toedit1:function (winTitle,workId) {
+                toedit1:function (winTitle,orderId) {
                     layer.open({
                         type: 2,
                         title: '添加员工信息',
@@ -107,7 +112,7 @@
                     ,method:'GET'
                     ,cols:  [[
                         {type: 'checkbox', fixed: 'left'}
-                        ,{field:'OrderId', title:'订单编号', width:100}
+                        ,{field:'orderId', title:'订单编号', width:100}
                         ,{field:'userId', title:'用户编号', width:120}
                         ,{field:'goodsId', title:'商品编号', width:120}
                         ,{field:'time', title:'购买日期', width:120}
@@ -127,14 +132,13 @@
             //监听行工具事件
             table.on('tool(courselist)', function(obj){
                 var data = obj.data;
-                //console.log(obj)
-
                 if(obj.event === 'del'){
                     layer.confirm('真的删除行么', function(index){
-                        var  id = data[0,"workId"] ;
+                        var  orderId = data[0,"orderId"] ;
+                        console.log(orderId+"---orderId")
                         layer.close(index);
                         $.ajax({
-                            url:"${pageContext.request.contextPath}/staff/todelete/"+id,
+                            url:"${pageContext.request.contextPath}/order/deleteByOrderId/"+orderId,
                             method:'DELETE',
                             dataType:"json",
                             success:function (msg) {
@@ -145,8 +149,26 @@
                             }
                         })
                     });
-                } else if(obj.event === 'edit'){
-                    var  id1 = data[0,"workId"]
+                }
+               else if(obj.event === 'chuli'){
+                    layer.confirm('确定处理此订单信息吗？', function(index){
+                        var  orderId = data[0,"orderId"] ;
+                        layer.close(index);
+                        $.ajax({
+                            url:"${pageContext.request.contextPath}/order/updateByOrderId/"+orderId,
+                            method:'POST',
+                            dataType:"json",
+                            success:function (msg) {
+                                if(msg.msgkey=="vailderror") {
+                                    alert(msg.message);
+                                    table.reload('courselist');
+                                }
+                            }
+                        })
+                    });
+                }
+                else if(obj.event === 'edit'){
+                    var  id1 = data[0,"OrderId"]
                     active.toedit("徐州工程学院教学工作量核算系统-修改课程信息",id1);
                 }
             });

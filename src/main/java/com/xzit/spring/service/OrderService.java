@@ -17,4 +17,8 @@ public interface OrderService {
     PageInfo<Order> selectOrderByOrderId(Integer pageNo, Integer pageSize,String OrderId);
 
     Order selectOrderrInf(String orderId);
+
+    void deleteByOrderId(String OrderId);
+
+    int updateByOrderId(String OrderId);
 }

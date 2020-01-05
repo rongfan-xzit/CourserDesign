@@ -11,4 +11,17 @@
     <select id="selectOrderByOrderId" resultType="com.xzit.spring.entity.Order">
        select * from ice_box.order where orderid=#{orderId}
     </select>
+
+    <delete id="deleteByOrderId" parameterType="String">
+        delete  from ice_box.order where orderId=#{orderId}
+    </delete>
+
+    <update id="updateByOrderId" parameterType="String">
+        update ice_box.order
+         set
+          status='已处理'
+          where
+          orderId=#{orderId}
+    </update>
+
 </mapper>

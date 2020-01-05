@@ -12,7 +12,7 @@ import java.util.Date;
 public class Order {
 
     //订单编号
-    private String OrderId;
+    private String orderId;
 
     //用户编号
     private String userId;
@@ -33,11 +33,11 @@ public class Order {
     private String status;
 
     public String getOrderId() {
-        return OrderId;
+        return orderId;
     }
 
     public void setOrderId(String orderId) {
-        OrderId = orderId;
+        this.orderId = orderId;
     }
 
     public String getUserId() {

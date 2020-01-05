@@ -50,6 +50,16 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order selectOrderrInf(String orderId) {
         return orderMapper.selectOrderrInf(orderId);
-
     }
+
+    @Override
+    public void deleteByOrderId(String OrderId) {
+        orderMapper.deleteByOrderId(OrderId);
+    }
+
+    @Override
+    public int updateByOrderId(String OrderId) {
+        return orderMapper.updateByOrderId(OrderId);
+    }
+
 }

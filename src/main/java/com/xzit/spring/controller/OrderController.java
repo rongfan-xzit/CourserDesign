@@ -3,6 +3,7 @@ package com.xzit.spring.controller;
 import com.github.pagehelper.PageInfo;
 import com.xzit.spring.dto.AjaxOutput;
 import com.xzit.spring.dto.Datagrid;
+import com.xzit.spring.dto.StaffDto;
 import com.xzit.spring.entity.Complaints;
 import com.xzit.spring.entity.Order;
 import com.xzit.spring.entity.WorkOrder;
@@ -94,4 +95,40 @@ public class OrderController {
         staffDatagrid.setMsg("已投诉工单信息列表");
         return staffDatagrid;
     }
+
+    /**
+     * 根据根据订单编号处理订单信息
+     */
+    @RequestMapping("/updateByOrderId/{OrderId}")
+    @ResponseBody
+    public AjaxOutput  updateByOrderId( @PathVariable String OrderId)
+    {
+        AjaxOutput ajaxOutput = new AjaxOutput();
+        int coun =  orderService.updateByOrderId(OrderId);
+        if(coun >0){
+            ajaxOutput.setMsgkey("vailderror");
+            ajaxOutput.setMessage("订单信息处理成功！");
+        }else {
+            ajaxOutput.setMsgkey("vailderror");
+            ajaxOutput.setMessage("订单信息处理出现错误！");
+        }
+        return ajaxOutput;
+    }
+
+    /**
+     * 用于根据订单编号删除订单信息
+     */
+    @RequestMapping("/deleteByOrderId/{OrderId}")
+    @ResponseBody
+    public AjaxOutput  deleteByOrderId(@PathVariable String OrderId)
+    {
+        orderService.deleteByOrderId(OrderId);
+        AjaxOutput ajaxOutput = new AjaxOutput();
+        ajaxOutput.setMsgkey("delSuccess");
+        ajaxOutput.setMessage("删除成功");
+        return ajaxOutput;
+    }
 }
+
+
+
