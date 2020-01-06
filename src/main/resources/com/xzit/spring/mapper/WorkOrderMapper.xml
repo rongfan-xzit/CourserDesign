@@ -33,4 +33,92 @@
     <select id="selectByOrderId" parameterType="String" resultType="com.xzit.spring.entity.WorkOrder1">
         select * from ice_box.workorder where orderId=#{orderId}
     </select>
+
+    <select id="selectOrder" resultType="com.xzit.spring.entity.WorkOrder1">
+       select * from ice_box.workorder
+    </select>
+
+    <select id="selectOrderByOrderId" resultType="com.xzit.spring.entity.WorkOrder1">
+       select * from ice_box.workorder where orderId=#{orderId}
+    </select>
+
+<!--    <update id="updateWorkOrderInf" parameterType="com.xzit.spring.entity.WorkOrder1">-->
+<!--        update ice_box.workorder-->
+<!--         set-->
+<!--          workorderid=#{workOrder.workorderid},-->
+<!--          userid=#{workOrder.userid},-->
+<!--          orderId=#{workOrder.orderId},-->
+<!--          question=#{workOrder.question},-->
+<!--          staffid=#{workOrder.staffid},-->
+
+<!--          aftersalecardid=#{workOrder.aftersalecardid},-->
+<!--          phone=#{workOrder.phone},-->
+<!--          address=#{workOrder.address},-->
+<!--          questionType=#{workOrder.questionType},-->
+<!--          paymethod=#{workOrder.paymethod},-->
+
+<!--          payment=#{workOrder.payment},-->
+<!--          status=#{workOrder.status},-->
+<!--          appointment=#{workOrder.appointment},-->
+<!--          checkResult=#{workOrder.checkResult},-->
+<!--          consumables=#{workOrder.consumables},-->
+<!--          consumableId=#{workOrder.consumableId},-->
+<!--          where-->
+<!--          orderId=#{workOrder.orderId}-->
+<!--    </update>-->
+
+    <update id="updateWorkOrderInf" parameterType="com.xzit.spring.entity.WorkOrder1" >
+        update ice_box.workorder
+        <set >
+            <if test="workorderid != null" >
+                workorderid = #{workOrder.workorderid},
+            </if>
+            <if test="userid != null" >
+                userid = #{workOrder.userid},
+            </if>
+            <if test="orderId != null" >
+                orderId = #{workOrder.orderId},
+            </if>
+            <if test="question != null" >
+                question = #{workOrder.question},
+            </if>
+            <if test="staffid != null" >
+                staffid = #{workOrder.staffid},
+            </if>
+            <if test="aftersalecardid != null" >
+                aftersalecardid = #{workOrder.aftersalecardid},
+            </if>
+            <if test="phone != null" >
+                phone = #{workOrder.phone},
+            </if>
+            <if test="address != null" >
+                address = #{workOrder.address},
+            </if>
+            <if test="questionType != null" >
+                questionType = #{workOrder.questionType},
+            </if>
+            <if test="paymethod != null" >
+                paymethod = #{workOrder.paymethod},
+            </if>
+            <if test="payment != null" >
+                payment = #{workOrder.payment},
+            </if>
+            <if test="status != null" >
+                status = #{workOrder.status},
+            </if>
+            <if test="appointment != null" >
+                appointment = #{workOrder.appointment},
+            </if>
+            <if test="checkResult != null" >
+                checkResult = #{workOrder.checkResult},
+            </if>
+            <if test="consumables != null" >
+                consumables = #{workOrder.consumables},
+            </if>
+            <if test="consumableId != null" >
+                consumableId = #{workOrder.consumableId},
+            </if>
+        </set>
+        where orderId = #{workOrder.orderId}
+    </update>
 </mapper>

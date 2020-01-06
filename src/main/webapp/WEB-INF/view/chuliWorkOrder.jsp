@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -24,32 +24,35 @@
 
 <form class="layui-form" action="" id="courseform">
     <div class="layui-form-item">
+
         <div class="layui-inline">
-            <label class="layui-form-label">工单编号</label>
+            <label class="layui-form-label">订单编号</label>
             <div class="layui-input-inline">
-                <input type="text" name="workorderid" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.workorderid}">
+                <input type="text" name="orderId" disabled="disabled"  lay-verify="required" autocomplete="off" class="layui-input" value="${orderId}">
             </div>
         </div>
+
         <div class="layui-inline">
             <label class="layui-form-label">保修卡编号</label>
             <div class="layui-input-inline">
-                <input type="text" name="aftersalecardid" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.aftersalecardid}">
+                <input type="text" name="aftersalecardid" lay-verify="required" autocomplete="off" class="layui-input" value="">
             </div>
         </div>
     </div>
 
     <div class="layui-form-item">
+
         <div class="layui-inline">
-            <label class="layui-form-label">订单编号</label>
+            <label class="layui-form-label">工单编号</label>
             <div class="layui-input-inline">
-                <input type="text" name="orderId" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.orderId}">
+                <input type="text" name="workorderid" lay-verify="required" autocomplete="off" class="layui-input" value="">
             </div>
         </div>
 
         <div class="layui-inline">
             <label class="layui-form-label">耗材编号</label>
             <div class="layui-input-inline">
-                <input type="text" name="consumableId" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.consumableId}">
+                <input type="text" name="consumableId" lay-verify="required" autocomplete="off" class="layui-input" value="">
             </div>
         </div>
     </div>
@@ -74,33 +77,32 @@
             <div class="layui-inline">
                 <label class="layui-form-label">问题描述</label>
                 <div class="layui-input-inline">
-                    <textarea  type="text" name="question" autocomplete="off" class="layui-input" value="1">${workOrder.question}</textarea>
+                    <textarea  type="text" name="question" autocomplete="off" class="layui-input" ></textarea>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">问题描述图片</label>
-            <div class="layui-input-inline">
-                <input type="file" name="imagePath"  autocomplete="off" class="layui-input" value="1" value="${workOrder.imagePath}">
-            </div>
-        </div>
-        </div>
-    </div>
+<%--    <div class="layui-form-item">--%>
+<%--        <div class="layui-inline">--%>
+<%--            <label class="layui-form-label">问题描述图片</label>--%>
+<%--            <div class="layui-input-inline">--%>
+<%--                <input type="file" name="imagePath"  autocomplete="off" class="layui-input" value="1" value="${workOrder.imagePath}">--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
        <%-- lay-verify="required|number"--%>
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">手机号</label>
             <div class="layui-input-inline">
-                <input type="text" name="phone" lay-verify="required|number" autocomplete="off" class="layui-input" value="${workOrder.phone}">
+                <input type="text" name="phone" lay-verify="required|number" autocomplete="off" class="layui-input" value="">
             </div>
         </div>
         <div class="layui-inline">
             <label class="layui-form-label">住址</label>
             <div class="layui-input-inline">
-                <input type="text" name="address"  autocomplete="off" class="layui-input" value="${workOrder.address}">
+                <input type="text" name="address"  autocomplete="off" class="layui-input" value="">
             </div>
         </div>
     </div>
@@ -120,7 +122,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">支付金额</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="payment" lay-verify="required|number" autocomplete="off" class="layui-input"  value="${workOrder.payment}">
+                    <input type="text" name="payment" lay-verify="required|number" autocomplete="off" class="layui-input"  value="">
                 </div>
             </div>
         </div>
@@ -143,7 +145,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">预约处理时间</label>
                     <div class="layui-input-inline">
-                        <input id="appointment" name="appointment" lay-verify="required" autocomplete="off" class="layui-input" value="${workOrder.appointment}">
+                        <input id="appointment" name="appointment" lay-verify="required" autocomplete="off" class="layui-input" value="">
                     </div>
                 </div>
         </div>
@@ -213,7 +215,7 @@
             $(".ajaxerrordiv").html();
             //发起ajax请求
             $.ajax({
-                url:"${pageContext.request.contextPath}/workOrder/addWorkOrder",
+                url:"${pageContext.request.contextPath}/workOrder/disWorkOrder",
                 type:"json",
                 data:json,
                 contentType:"application/json",

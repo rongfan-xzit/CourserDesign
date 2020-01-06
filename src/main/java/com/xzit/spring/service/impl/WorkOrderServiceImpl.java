@@ -2,6 +2,7 @@ package com.xzit.spring.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xzit.spring.entity.Order;
 import com.xzit.spring.entity.WorkOrder;
 import com.xzit.spring.entity.WorkOrder1;
 import com.xzit.spring.mapper.WorkOrderMapper;
@@ -66,23 +67,28 @@ public class WorkOrderServiceImpl implements WorkOrderService {
     }
 
 
-   /* @Override
-    public List<Staff> findAll() {
-        return staffMapper.findAll();
-    }
-
     @Override
-    public PageInfo<Staff> pageSelect(Staff staff, Integer pageNo, Integer pageSize) {
+    public PageInfo<WorkOrder1> selectOrder(Integer pageNo, Integer pageSize) {
         pageNo = pageNo ==null?1:pageNo;
         pageSize = pageSize==null?10:pageSize;
         PageHelper.startPage(pageNo,pageSize);
-        List<Staff> staffAll = staffMapper.findAll();
-        PageInfo<Staff> page = new PageInfo<>(staffAll);
+        List<WorkOrder1> staffAll = workOrderMapper.selectOrder();
+        PageInfo<WorkOrder1> page = new PageInfo<>(staffAll);
         return page;
     }
 
     @Override
-    public Staff findById(String workId) {
-        return staffMapper.findById(workId);
-    }*/
+    public PageInfo<WorkOrder1> selectOrderByOrderId(Integer pageNo, Integer pageSize,String OrderId) {
+        pageNo = pageNo ==null?1:pageNo;
+        pageSize = pageSize==null?10:pageSize;
+        PageHelper.startPage(pageNo,pageSize);
+        List<WorkOrder1> staffAll = workOrderMapper.selectOrderByOrderId(OrderId);
+        PageInfo<WorkOrder1> page = new PageInfo<>(staffAll);
+        return page;
+    }
+
+    @Override
+    public int updateWorkOrderInf(WorkOrder1 workOrder) {
+        return workOrderMapper.updateWorkOrderInf(workOrder);
+    }
 }

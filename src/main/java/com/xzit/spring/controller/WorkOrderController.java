@@ -3,6 +3,7 @@ package com.xzit.spring.controller;
 import com.github.pagehelper.PageInfo;
 import com.xzit.spring.dto.AjaxOutput;
 import com.xzit.spring.dto.Datagrid;
+import com.xzit.spring.dto.StaffAccount;
 import com.xzit.spring.entity.Order;
 import com.xzit.spring.entity.WorkOrder;
 import com.xzit.spring.entity.WorkOrder1;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.text.ParseException;
 import java.util.Date;
@@ -127,6 +130,15 @@ public class WorkOrderController {
             return "complaintsPage";
         }
 
+    /**
+     * 跳转到处理工单页面
+     * @return
+     */
+    @RequestMapping("/disposeWorkOrderPage")
+    public String disposeWorkOrderPage()
+    {
+        return "disposeWorkOrderPage";
+    }
 
 
         /**
@@ -176,6 +188,32 @@ public class WorkOrderController {
             return "selectWorkOrder";
         }
 
+
+    /**
+     *处理工单进度
+     */
+    @RequestMapping("disWorkOrderPage/{orderId}")
+    public ModelAndView  disWorkOrderPage(@PathVariable String orderId)
+    {
+//        StaffAccount staff =  staffService.findByWorkId(id);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("chuliWorkOrder");
+        mv.addObject("orderId",orderId);
+        return mv;
+    }
+    /**
+     *查看工单进度接口
+     */
+    @RequestMapping("upImgWorkOrderPage/{orderId}")
+    public ModelAndView  upImgWorkOrderPage(@PathVariable String orderId)
+    {
+//        StaffAccount staff =  staffService.findByWorkId(id);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("upImgWorkOrder");
+        mv.addObject("orderId",orderId);
+        return mv;
+    }
+
     /**
      *确认工单信息查询接口
      */
@@ -211,28 +249,81 @@ public class WorkOrderController {
         }
         return ajaxOutput;
     }
-//    @RequestMapping("toadd")
-//    public String toadd()
-//    {
-//        return "add";
-//    }
-//    @RequestMapping("ajaxvalid")
-//    public AjaxOutput ajaxAdd(@Validated @RequestBody StaffDto staffDto, BindingResult bindingResult) throws Exception
-//    {
-//        AjaxOutput ajaxOutput = new AjaxOutput();
-//        if(bindingResult.hasErrors())
-//        {
-//            List<ObjectError> allErrors = bindingResult.getAllErrors();
-//            ajaxOutput.setMsgkey("vailderror");
-//            ajaxOutput.setMessage("数据校验失败");
-//            ajaxOutput.getData(allErrors);
-//            return ajaxOutput;
-//        }
-//        accountService.insertStaffAccount(staffDto.getWorkId(),"123",staffDto.getRoleId());
-//        Account account = accountService.findBy(staffDto.getWorkId(), "123");
-//        Staff staff = new Staff(staffDto.getWorkId(),staffDto.getType(),staffDto.getName(),staffDto.getPhone(),staffDto.getSex(),staffDto.getAge(),account.getUserInfoId());
-//        staffService.insertStaff(staff);
-//        ajaxOutput.setMessage("数据保存成功");
-//        return ajaxOutput;
-//    }
+
+    /**
+     *根据订单号查询处理工单信息接口
+     */
+    @RequestMapping("/disposeWorkOrder/{OrderId}")
+    @ResponseBody
+    public Datagrid<WorkOrder1> disposeWorkOrder(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
+                                       @RequestParam(value = "limit", defaultValue = "10", required = false) int rows,
+                                       @PathVariable String  orderId) {
+        Datagrid<WorkOrder1> staffDatagrid = new Datagrid<>();
+        //查询是否存在工单编号
+        PageInfo<WorkOrder1> staffPageInfo = workOrderService.selectOrderByOrderId(page,rows,orderId);
+        staffDatagrid.setCode(0);
+        staffDatagrid.setCount(staffPageInfo.getTotal());
+        staffDatagrid.setData(staffPageInfo.getList());
+        staffDatagrid.setMsg("工单信息列表");
+        return staffDatagrid;
+    }
+
+    /**
+     *查询处理工单信息接口
+     */
+    @RequestMapping("/find")
+    @ResponseBody
+    public Datagrid<WorkOrder1> find(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
+                                       @RequestParam(value = "limit", defaultValue = "10", required = false) int rows) {
+        Datagrid<WorkOrder1> staffDatagrid = new Datagrid<>();
+        //查询是否存在工单编号
+        PageInfo<WorkOrder1> staffPageInfo = workOrderService.selectOrder(page,rows);
+        staffDatagrid.setCode(0);
+        staffDatagrid.setCount(staffPageInfo.getTotal());
+        staffDatagrid.setData(staffPageInfo.getList());
+        staffDatagrid.setMsg("工单信息列表");
+        return staffDatagrid;
+    }
+
+    /**
+     *处理工单信息接口
+     */
+    @RequestMapping("/disWorkOrder")
+    @ResponseBody
+    public AjaxOutput disWorkOrder(@Valid @RequestBody WorkOrder1 workOrder1) throws ParseException {
+        AjaxOutput ajaxOutput = new AjaxOutput();
+        //通过订单编号查询是否存在此订单
+        Order order = orderService.selectOrderrInf(workOrder1.getOrderId());
+        //存在此订单情况(保修卡编号是否存在问题未考虑)
+        if(null != order){
+            WorkOrder1 workOrder2 =  workOrderService.selectByWorkorderid(workOrder1.getWorkorderid());
+            if(null != workOrder2){
+                //购买此订单的用户编号
+                workOrder1.setUserid(order.getUserId());
+                workOrder1.setConsumables("检查完成");
+                int coun =  workOrderService.updateWorkOrderInf(workOrder1);
+                if(coun >0){
+                    ajaxOutput.setMsgkey("vailderror");
+                    ajaxOutput.setMessage("工单信息处理成功");
+                }else {
+                    ajaxOutput.setMsgkey("vailderror");
+                    ajaxOutput.setMessage("工单信息处理提交出现错误！");
+                }
+            }
+
+        }else {
+            ajaxOutput.setMsgkey("vailderror");
+            ajaxOutput.setMessage("此订单编号不存在！");
+        }
+        return ajaxOutput;
+    }
+
+
+    @RequestMapping("/upinfo")
+    @ResponseBody
+    public void upinfo(HttpServletRequest request) throws Exception {
+        System.out.println("avatar->");
+    }
+
+
 }
