@@ -9,6 +9,7 @@ import com.xzit.spring.entity.WorkOrder;
 import com.xzit.spring.entity.WorkOrder1;
 import com.xzit.spring.service.OrderService;
 import com.xzit.spring.service.WorkOrderService;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,9 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.File;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 
 @Controller
@@ -207,13 +210,19 @@ public class WorkOrderController {
     @RequestMapping("upImgWorkOrderPage/{orderId}")
     public ModelAndView  upImgWorkOrderPage(@PathVariable String orderId)
     {
-//        StaffAccount staff =  staffService.findByWorkId(id);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("upImgWorkOrder");
         mv.addObject("orderId",orderId);
         return mv;
     }
 
+//    @RequestMapping("upImgWorkOrderPage")
+//    public ModelAndView  upImgWorkOrderPage()
+//    {
+//        ModelAndView mv = new ModelAndView();
+//        mv.setViewName("upImgWorkOrder");
+//        return mv;
+//    }
     /**
      *确认工单信息查询接口
      */
@@ -253,7 +262,7 @@ public class WorkOrderController {
     /**
      *根据订单号查询处理工单信息接口
      */
-    @RequestMapping("/disposeWorkOrder/{OrderId}")
+    @RequestMapping("/disposeWorkOrder")
     @ResponseBody
     public Datagrid<WorkOrder1> disposeWorkOrder(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
                                        @RequestParam(value = "limit", defaultValue = "10", required = false) int rows,
@@ -300,7 +309,7 @@ public class WorkOrderController {
             if(null != workOrder2){
                 //购买此订单的用户编号
                 workOrder1.setUserid(order.getUserId());
-                workOrder1.setConsumables("检查完成");
+                workOrder1.setCheckResult("检查完成");
                 int coun =  workOrderService.updateWorkOrderInf(workOrder1);
                 if(coun >0){
                     ajaxOutput.setMsgkey("vailderror");
@@ -309,8 +318,10 @@ public class WorkOrderController {
                     ajaxOutput.setMsgkey("vailderror");
                     ajaxOutput.setMessage("工单信息处理提交出现错误！");
                 }
+            }else {
+                ajaxOutput.setMsgkey("vailderror");
+                ajaxOutput.setMessage("此工单编号不存在！请重新填写！");
             }
-
         }else {
             ajaxOutput.setMsgkey("vailderror");
             ajaxOutput.setMessage("此订单编号不存在！");
@@ -319,10 +330,50 @@ public class WorkOrderController {
     }
 
 
+    /**
+     * 用于根据订单编号删除订单信息
+     */
+    @RequestMapping("/deleteByOrderId/{OrderId}")
+    @ResponseBody
+    public AjaxOutput  deleteByOrderId(@PathVariable String OrderId)
+    {
+      int coun = workOrderService.deleteByOrderId(OrderId);
+        AjaxOutput ajaxOutput = new AjaxOutput();
+        ajaxOutput.setMsgkey("delSuccess");
+        if(coun >0){
+            ajaxOutput.setMessage("删除成功");
+        }else {
+            ajaxOutput.setMessage("此工单信息存在未删除的订单，所以不可删除！");
+        }
+        return ajaxOutput;
+    }
+
+
     @RequestMapping("/upinfo")
     @ResponseBody
-    public void upinfo(HttpServletRequest request) throws Exception {
-        System.out.println("avatar->");
+    public void upinfo(HttpServletRequest request ,@RequestParam("pictureFile") MultipartFile pictureFile) throws Exception {
+        //使用UUID给图片重命名，并去掉四个“-”
+        String name = UUID.randomUUID().toString().replaceAll("-", "");
+        //获取文件的扩展名
+        String ext = FilenameUtils.getExtension(pictureFile.getOriginalFilename());
+        //设置图片上传路径
+        File directory = new File("");// 参数为空
+        String workspacePath = directory.getCanonicalPath(); //获取工作空间的绝对路径
+        System.out.println(workspacePath);
+        String uploadDicPath = "\\src\\main\\webapp\\upload\\"; //手动添加上传文件夹的路径
+        String uploadPath = workspacePath + uploadDicPath; //最终图片上传的路径
+
+        File targetFile = new File(uploadPath,name + "." + ext);
+        pictureFile.transferTo(targetFile);
+        //以绝对路径保存重名命后的图片
+
+        System.out.println("1111");
+        //把图片存储路径保存到数据库
+//        user.setImageURL("upload/"+name + "." + ext);
+//
+//        userService.addUser(user);
+        //重定向到查询所有用户的Controller，测试图片回显
+
     }
 
 

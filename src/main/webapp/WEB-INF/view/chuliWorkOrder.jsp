@@ -83,15 +83,7 @@
         </div>
     </div>
 
-<%--    <div class="layui-form-item">--%>
-<%--        <div class="layui-inline">--%>
-<%--            <label class="layui-form-label">问题描述图片</label>--%>
-<%--            <div class="layui-input-inline">--%>
-<%--                <input type="file" name="imagePath"  autocomplete="off" class="layui-input" value="1" value="${workOrder.imagePath}">--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-       <%-- lay-verify="required|number"--%>
+
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">手机号</label>
@@ -166,7 +158,8 @@
         <div class="layui-input-block">
 <%--            <button class="layui-btn" lay-submit="" lay-filter="savebtn">保存</button>--%>
             <button class="layui-btn" lay-submit="" lay-filter="ajaxsavebtn">保存(ajax)</button>
-<%--            <button class="layui-btn layui-btn-primary btn-close">关闭</button>--%>
+<%--    <input type ="button" value="关闭"  onclick="window.location.href='.jsp'">--%>
+            <button class="layui-btn layui-btn-primary btn-close">关闭</button>
         </div>
     </div>
 
@@ -230,7 +223,8 @@
                     var message =result.message;
                     if(msgkey=="vailderror"){
                         alert(message);
-                        $('#courseform')[0].reset();
+
+
                     }
                 },
                 complete:function(XMLHttpRequest,textStatus){
@@ -244,11 +238,11 @@
             return false;
         });
 
-    //     $(".btn-close").click(function(){
-    //         //关闭父窗口
-    //         var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
-    //         parent.layer.close(index); //再执行关闭
-    //     });
+        $(".btn-close").click(function(){
+            //关闭父窗口
+            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+            parent.layer.close(index); //再执行关闭
+        });
      });
 </script>
 

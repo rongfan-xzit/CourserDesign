@@ -91,4 +91,9 @@ public class WorkOrderServiceImpl implements WorkOrderService {
     public int updateWorkOrderInf(WorkOrder1 workOrder) {
         return workOrderMapper.updateWorkOrderInf(workOrder);
     }
+
+    @Override
+    public int deleteByOrderId(String orderId) {
+     return    workOrderMapper.deleteByOrderId(orderId);
+    }
 }

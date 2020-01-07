@@ -28,4 +28,6 @@ public interface WorkOrderService {
     PageInfo<WorkOrder1> selectOrderByOrderId(Integer pageNo, Integer pageSize,String OrderId);
 
     int updateWorkOrderInf(WorkOrder1 workOrder);
+
+    int deleteByOrderId(String orderId);
 }

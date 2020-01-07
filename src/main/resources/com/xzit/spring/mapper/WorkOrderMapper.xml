@@ -71,54 +71,58 @@
         update ice_box.workorder
         <set >
             <if test="workorderid != null" >
-                workorderid = #{workOrder.workorderid},
+                workorderid = #{workorderid},
             </if>
             <if test="userid != null" >
-                userid = #{workOrder.userid},
+                userid = #{userid},
             </if>
             <if test="orderId != null" >
-                orderId = #{workOrder.orderId},
+                orderId = #{orderId},
             </if>
             <if test="question != null" >
-                question = #{workOrder.question},
+                question = #{question},
             </if>
             <if test="staffid != null" >
-                staffid = #{workOrder.staffid},
+                staffid = #{staffid},
             </if>
             <if test="aftersalecardid != null" >
-                aftersalecardid = #{workOrder.aftersalecardid},
+                aftersalecardid = #{aftersalecardid},
             </if>
             <if test="phone != null" >
-                phone = #{workOrder.phone},
+                phone = #{phone},
             </if>
             <if test="address != null" >
-                address = #{workOrder.address},
+                address = #{address},
             </if>
             <if test="questionType != null" >
-                questionType = #{workOrder.questionType},
+                questionType = #{questionType},
             </if>
             <if test="paymethod != null" >
-                paymethod = #{workOrder.paymethod},
+                paymethod = #{paymethod},
             </if>
             <if test="payment != null" >
-                payment = #{workOrder.payment},
+                payment = #{payment},
             </if>
             <if test="status != null" >
-                status = #{workOrder.status},
+                status = #{status},
             </if>
             <if test="appointment != null" >
-                appointment = #{workOrder.appointment},
+                appointment = #{appointment},
             </if>
             <if test="checkResult != null" >
-                checkResult = #{workOrder.checkResult},
+                checkResult = #{checkResult},
             </if>
             <if test="consumables != null" >
-                consumables = #{workOrder.consumables},
+                consumables = #{consumables},
             </if>
             <if test="consumableId != null" >
-                consumableId = #{workOrder.consumableId},
+                consumableId = #{consumableId},
             </if>
         </set>
-        where orderId = #{workOrder.orderId}
+        where orderId = #{orderId}
     </update>
+
+    <delete id="deleteByOrderId" parameterType="String">
+        delete  from ice_box.workorder where orderId=#{orderId}
+    </delete>
 </mapper>

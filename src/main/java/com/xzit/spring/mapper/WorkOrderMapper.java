@@ -25,4 +25,7 @@ public interface WorkOrderMapper {
     List<WorkOrder1> selectOrderByOrderId(String orderId);
 
     int updateWorkOrderInf(WorkOrder1 workOrder);
+
+
+    int deleteByOrderId(String orderId);
 }

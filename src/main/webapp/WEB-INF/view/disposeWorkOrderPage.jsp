@@ -174,10 +174,9 @@
             if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
                     var  orderId = data[0,"orderId"] ;
-                    console.log(orderId+"---orderId")
                     layer.close(index);
                     $.ajax({
-                        url:"${pageContext.request.contextPath}/order/deleteByOrderId/"+orderId,
+                        url:"${pageContext.request.contextPath}/workOrder/deleteByOrderId/"+orderId,
                         method:'DELETE',
                         dataType:"json",
                         success:function (msg) {
