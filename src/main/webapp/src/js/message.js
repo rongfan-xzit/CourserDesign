@@ -54,6 +54,6 @@ layui.define(['jquery', 'kitconfig'], function(exports) {
             that.times++;
         }
     };
-    layui.link( '/CourseDeign_war_exploded/build/css/message.css');
+    layui.link( '/CourseDeign/build/css/message.css');
     exports('message', message);
 });

@@ -198,10 +198,10 @@ public class WorkOrderController {
     @RequestMapping("disWorkOrderPage/{orderId}")
     public ModelAndView  disWorkOrderPage(@PathVariable String orderId)
     {
-//        StaffAccount staff =  staffService.findByWorkId(id);
+        WorkOrder1 workOrder1 = workOrderService.selectByOrderId(orderId);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("chuliWorkOrder");
-        mv.addObject("orderId",orderId);
+        mv.addObject("workOrder1",workOrder1);
         return mv;
     }
     /**
@@ -262,7 +262,7 @@ public class WorkOrderController {
     /**
      *根据订单号查询处理工单信息接口
      */
-    @RequestMapping("/disposeWorkOrder")
+    @RequestMapping("/disposeWorkOrder/{orderId}")
     @ResponseBody
     public Datagrid<WorkOrder1> disposeWorkOrder(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
                                        @RequestParam(value = "limit", defaultValue = "10", required = false) int rows,
@@ -299,14 +299,27 @@ public class WorkOrderController {
      */
     @RequestMapping("/disWorkOrder")
     @ResponseBody
-    public AjaxOutput disWorkOrder(@Valid @RequestBody WorkOrder1 workOrder1) throws ParseException {
+    public AjaxOutput disWorkOrder(HttpServletRequest request ,WorkOrder1 workOrder1) throws Exception {
         AjaxOutput ajaxOutput = new AjaxOutput();
         //通过订单编号查询是否存在此订单
         Order order = orderService.selectOrderrInf(workOrder1.getOrderId());
         //存在此订单情况(保修卡编号是否存在问题未考虑)
         if(null != order){
             WorkOrder1 workOrder2 =  workOrderService.selectByWorkorderid(workOrder1.getWorkorderid());
+            //工单编号存在的情况
             if(null != workOrder2){
+            //处理图片将图片保存在工程upload文件夹中
+                //使用UUID给图片重命名，并去掉四个“-”
+                String name = UUID.randomUUID().toString().replaceAll("-", "");
+                //获取文件的扩展名
+                String ext = FilenameUtils.getExtension(workOrder1.getPictureFile().getOriginalFilename());
+                //设置图片上传路径
+                String url = request.getSession().getServletContext().getRealPath("/upload");
+                String ur = request.getSession().getServletContext().getRealPath("/");
+                System.out.println(ur);
+                workOrder1.getPictureFile().transferTo(new File(url+"/"+name + "." + ext));
+                //将图片路径保存在数据库中
+                workOrder1.setImagePath("\\"+"upload"+"\\"+name + "." + ext);
                 //购买此订单的用户编号
                 workOrder1.setUserid(order.getUserId());
                 workOrder1.setCheckResult("检查完成");
@@ -357,17 +370,20 @@ public class WorkOrderController {
         //获取文件的扩展名
         String ext = FilenameUtils.getExtension(pictureFile.getOriginalFilename());
         //设置图片上传路径
-        File directory = new File("");// 参数为空
-        String workspacePath = directory.getCanonicalPath(); //获取工作空间的绝对路径
-        System.out.println(workspacePath);
-        String uploadDicPath = "\\src\\main\\webapp\\upload\\"; //手动添加上传文件夹的路径
-        String uploadPath = workspacePath + uploadDicPath; //最终图片上传的路径
-
-        File targetFile = new File(uploadPath,name + "." + ext);
-        pictureFile.transferTo(targetFile);
+        String url = request.getSession().getServletContext().getRealPath("/upload");
+        String ur = request.getSession().getServletContext().getRealPath("/");
+        System.out.println(ur);
+        pictureFile.transferTo(new File(url+"/"+name + "." + ext));
+        System.out.println("\\"+"upload"+"\\"+name + "." + ext);
         //以绝对路径保存重名命后的图片
 
-        System.out.println("1111");
+//        String workspacePath = directory.getCanonicalPath(); //获取工作空间的绝对路径
+//        System.out.println(workspacePath);
+//        String uploadDicPath = "\\src\\main\\webapp\\upload\\"; //手动添加上传文件夹的路径
+//        String uploadPath = workspacePath + uploadDicPath; //最终图片上传的路径
+//
+//        File targetFile = new File(uploadPath,name + "." + ext);
+//        pictureFile.transferTo(targetFile);
         //把图片存储路径保存到数据库
 //        user.setImageURL("upload/"+name + "." + ext);
 //

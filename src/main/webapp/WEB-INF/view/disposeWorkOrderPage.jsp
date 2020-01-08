@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css" media="all">
+    <style>.layui-table-cell{height:auto!important;white-space: normal}</style>
 </head>
 
 <body>
@@ -20,16 +21,18 @@
     </div>
     <a class="layui-btn mgl-20" data-type="reload" id="queryBtn">查询</a>
 </form>
+
 <!--用户数据表格-->
 <table class="layui-hide" id="courselist" lay-filter="courselist"></table>
 
 <script type="text/html" id="barDemo">
     {{# if(d.checkResult =='待检查'){ }}
-    <a class="layui-btn layui-btn-danger layui-btn-xs"  lay-event="upImg">上传图片凭证</a>
+<%--    <a class="layui-btn layui-btn-danger layui-btn-xs"  lay-event="upImg">上传图片凭证</a>--%>
     <a class="layui-btn layui-btn-danger layui-btn-xs"  lay-event="chuli">处理</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+<%--    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
     {{# }if(d.checkResult =='检查完成') { }}
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+<%--    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
+    <a  href ="javascript:return false;" onclick="return false;" style="cursor: default;">已处理</a>
     {{# } }}
 </script>
 
@@ -48,19 +51,19 @@
             ,url:'${pageContext.request.contextPath}/workOrder/find'
             ,title: '工单信息表'
             ,cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                ,{field:'orderId', title:'订单编号', width:100}
-                ,{field:'workorderid', title:'工单编号', width:120}
-                ,{field:'aftersalecardid', title:'保修卡编号', width:120}
-                ,{field:'appointment', title:'维修日期', width:120}
-                ,{field:'phone', title:'用户手机号', width:120}
-                ,{field:'consumableId', title:'耗材编号', width:120}
-                ,{field:'payment', title:'支付金额', width:120}
+                {field:'workorderid', title:'工单编号', width:90}
+                ,{field:'orderId', title:'订单编号', width:90}
+                ,{field:'aftersalecardid', title:'保修卡编号', width:100}
+                ,{field:'appointment', title:'维修日期', width:160}
+                ,{field:'phone', title:'用户手机号', width:100}
+                ,{field:'consumableName', title:'耗材名称', width:100}
+                ,{field:'payment', title:'支付金额', width:90}
                 ,{field:'question', title:'问题描述', width:160}
-                ,{field:'questionType', title:'问题类型', width:160}
-                ,{field:'imagePath', title:'图片凭证', templet: '#imgTpl',width:160}
-                ,{field:'checkResult', title:'检查后的结果', width:160}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                ,{field:'questionType', title:'问题类型', width:90}
+                ,{field:'imagePath', title:'图片凭证', templet: '#imgTpl',width:150}
+                ,{field:'checkResult', title:'检查后结果', width:100}
+                ,{field:'appointContent', title:'处理内容', width:160}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:90}
             ]]
             ,page: true
         });
@@ -110,6 +113,7 @@
                 });
             },
             chuli1:function (winTitle,orderId) {
+
                 layer.open({
                     type: 2,
                     title: '处理工单信息',
@@ -117,8 +121,12 @@
                     shade: 0.5,
                     maxmin: true, //开启最大化最小化按钮
                     area: ['1000px', '600px'],
-                    content: '${pageContext.request.contextPath}/workOrder/disWorkOrderPage/'+orderId
+                    content: '${pageContext.request.contextPath}/workOrder/disWorkOrderPage/'+orderId,
+                    end : function() {
+                        window.parent.location.reload();
+                    },
                 });
+                layer.closeAll('tips'); //关闭所有的tips层
             },
             upImg1:function (winTitle,orderId) {
                 layer.open({
@@ -141,19 +149,19 @@
                 ,title: '工单信息表'
                 ,method:'GET'
                 ,cols:  [[
-                    {type: 'checkbox', fixed: 'left'}
-                    ,{field:'orderId', title:'订单编号', width:80}
-                    ,{field:'workorderid', title:'工单编号', width:80}
-                    ,{field:'aftersalecardid', title:'保修卡编号', width:120}
-                    ,{field:'appointment', title:'维修日期', width:120}
-                    ,{field:'phone', title:'用户手机号', width:120}
-                    ,{field:'consumableId', title:'耗材编号', width:80}
-                    ,{field:'payment', title:'支付金额', width:80}
-                    ,{field:'question', title:'问题描述', width:120}
-                    ,{field:'questionType', title:'问题类型', width:160}
-                    ,{field:'imagePath', title:'图片凭证', templet: '#imgTpl',width:160}
-                    ,{field:'checkResult', title:'检查后的结果', width:100}
-                    ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:500}
+                    {field:'workorderid', title:'工单编号', width:90}
+                    ,{field:'orderId', title:'订单编号', width:90}
+                    ,{field:'aftersalecardid', title:'保修卡编号', width:100}
+                    ,{field:'appointment', title:'维修日期', width:160}
+                    ,{field:'phone', title:'用户手机号', width:100}
+                    ,{field:'consumableName', title:'耗材名称', width:100}
+                    ,{field:'payment', title:'支付金额', width:90}
+                    ,{field:'question', title:'问题描述', width:160}
+                    ,{field:'questionType', title:'问题类型', width:90}
+                    ,{field:'imagePath', title:'图片凭证', templet: '#imgTpl',width:150}
+                    ,{field:'checkResult', title:'检查后结果', width:100}
+                    ,{field:'appointContent', title:'处理内容', width:160}
+                    ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:90}
                 ]]
                 ,page: true
             });
@@ -188,23 +196,7 @@
                     })
                 });
             }
-            <%--else if(obj.event === 'chuli'){--%>
-            <%--    layer.confirm('确定处理此订单信息吗？', function(index){--%>
-            <%--        var  orderId = data[0,"orderId"] ;--%>
-            <%--        layer.close(index);--%>
-            <%--        $.ajax({--%>
-            <%--            url:"${pageContext.request.contextPath}/order/updateByOrderId/"+orderId,--%>
-            <%--            method:'POST',--%>
-            <%--            dataType:"json",--%>
-            <%--            success:function (msg) {--%>
-            <%--                if(msg.msgkey=="vailderror") {--%>
-            <%--                    alert(msg.message);--%>
-            <%--                    table.reload('courselist');--%>
-            <%--                }--%>
-            <%--            }--%>
-            <%--        })--%>
-            <%--    });--%>
-            <%--}--%>
+
             else if(obj.event === 'chuli'){
                 var  id1 = data[0,"orderId"]
                 active.chuli1("徐州工程学院教学工作量核算系统-修改课程信息",id1);

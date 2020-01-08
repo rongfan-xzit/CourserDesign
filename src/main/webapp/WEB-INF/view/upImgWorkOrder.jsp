@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="/CourseDeign_war_exploded/workOrder/upinfo" method="post" enctype="multipart/form-data">
+<form action="/CourseDeign/workOrder/upinfo" method="post" enctype="multipart/form-data">
     图片： <input type="file"     name = "pictureFile" /><br>
     <input type = "submit" value = "提交" >
 </form>

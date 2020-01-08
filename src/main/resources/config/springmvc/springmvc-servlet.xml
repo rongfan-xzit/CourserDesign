@@ -41,4 +41,5 @@
     <mvc:resources location="/js/" mapping="/js/**" />
     <mvc:resources location="/plugins/" mapping="/plugins/**" />
     <mvc:resources location="/src/" mapping="/src/**" />
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
 </beans>

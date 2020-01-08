@@ -118,6 +118,15 @@
             <if test="consumableId != null" >
                 consumableId = #{consumableId},
             </if>
+            <if test="imagePath != null" >
+                imagePath = #{imagePath},
+            </if>
+            <if test="consumableName != null" >
+                consumableName = #{consumableName},
+            </if>
+            <if test="appointContent != null" >
+                appointContent = #{appointContent},
+            </if>
         </set>
         where orderId = #{orderId}
     </update>

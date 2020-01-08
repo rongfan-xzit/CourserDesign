@@ -477,6 +477,6 @@ layui.define('kitconfig', function(exports) {
         return NProgress;
     });
 
-    layui.link( '/CourseDeign_war_exploded/build/css/nprogress.css');
+    layui.link( '/CourseDeign/build/css/nprogress.css');
     exports('nprogress');
 });

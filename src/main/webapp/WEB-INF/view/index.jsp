@@ -90,7 +90,7 @@
 <script>
     var message;
     layui.config({
-        base: '/CourseDeign_war_exploded/src/js/',
+        base: '/CourseDeign/src/js/',
         version: '1.0.1'
     }).use(['app', 'message'], function() {
         var app = layui.app,

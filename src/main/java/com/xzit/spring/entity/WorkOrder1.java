@@ -2,6 +2,7 @@ package com.xzit.spring.entity;
 
 
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -53,7 +54,12 @@ public class WorkOrder1 {
     private String consumables;
     //耗材编号
     private int consumableId;
+    //耗材名称
+    private String consumableName;
+    //处理内容
+    private String appointContent;
 
+    private MultipartFile pictureFile;
 
     public String getAddress() {
         return address;
@@ -199,4 +205,27 @@ public class WorkOrder1 {
         this.consumableId = consumableId;
     }
 
+    public String getConsumableName() {
+        return consumableName;
+    }
+
+    public void setConsumableName(String consumableName) {
+        this.consumableName = consumableName;
+    }
+
+    public String getAppointContent() {
+        return appointContent;
+    }
+
+    public void setAppointContent(String appointContent) {
+        this.appointContent = appointContent;
+    }
+
+    public MultipartFile getPictureFile() {
+        return pictureFile;
+    }
+
+    public void setPictureFile(MultipartFile pictureFile) {
+        this.pictureFile = pictureFile;
+    }
 }
